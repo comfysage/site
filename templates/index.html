@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="title">{{ section.title }}</h1>
+<nav>
+  <ul>
+    <li>
+      <a href="{{ get_url(path='@/blog/_index.md') }}">blog</a>
+    </li>
+  </ul>
+</nav>
+{% endblock content %}
