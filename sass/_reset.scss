@@ -64,5 +64,12 @@ select {
 body,
 html {
   height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+
   scroll-behavior: smooth;
 }

@@ -1,4 +1,18 @@
+@use "../_variables/responsive.scss" as *;
+
 .sidebar {
   display: flex;
   flex-direction: column;
+}
+
+@media not (min-width: $bp-desktop) {
+  #root>#page .sidebar.right {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  #root>#page .sidebar.left {
+    flex-direction: row;
+  }
 }
