@@ -1,0 +1,72 @@
+{% block title %}
+{% set title = "robinroses" %}
+{% endblock %}
+{% block description %}
+{% set description = "a cozy site" %}
+{% endblock %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light-dark" />
+    <meta name="darkreader-lock" />
+
+    <title>{{ title }} | robinroses</title>
+    <meta name="author" content="Robin Roses" />
+    <meta name="description" content="{{ description }}" />
+    <link rel="canonical" href="{{ config.base_url }}">
+    <link rel=expect href="#below-the-fold" blocking=render>
+
+    <meta property="twitter:domain" content="robinroses.com" />
+    <meta name="twitter:image" content="{{ get_url(path='/me.webp') }}" />
+    <meta name="twitter:card" content="{{ description }}">
+
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ get_url(path='/me.webp') }}" />
+
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml">
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    <link type="text/plain" rel="author" href="/humans.txt" />
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="{{ get_url(path='/style.css') }}" />
+    {% endblock head %}
+
+    {% block additionalHead %} {% endblock additionalHead %}
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="page">
+        <div class="left sidebar">
+          {% include "partials/sidebar.tera.html" %}
+        </div>
+
+        <div class="page-header">
+          {% include "partials/breadcrumbs.tera.html" %}
+          {% block pageheader %} {% endblock pageheader %}
+        </div>
+
+        <section id="main">
+          {% block content %} {% endblock content %}
+        </section>
+
+        <div class="right sidebar">
+          {% block right %} {% endblock right %}
+        </div>
+
+        <footer class="page-footer">
+          {% include "partials/footer.tera.html" %}
+        </footer>
+      </div>
+    </div>
+  </body>
+
+  {% block additionalfoot %} {% endblock %}
+</html>

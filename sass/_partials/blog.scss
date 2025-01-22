@@ -1,0 +1,42 @@
+.blog-previews {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  .blogpreview {
+    list-style: none;
+
+    a {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: left;
+
+      gap: .8rem 1rem;
+
+      h2 {
+        margin: 0;
+      }
+
+      .date {
+        font-size: 20px;
+        margin-top: .3rem;
+      }
+
+      .description {
+        grid-column: 2;
+      }
+
+      color: var(--overlay2);
+
+      text-decoration: none;
+
+      &:hover {
+        transition: color 300ms ease;
+        color: var(--special);
+
+        text-decoration: none;
+      }
+    }
+  }
+}

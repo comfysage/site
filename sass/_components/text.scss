@@ -1,0 +1,14 @@
+p {
+  line-height: 1.6rem;
+
+  &.subtle {
+    color: var(--subtext0);
+  }
+
+  // inline code
+  &>code {
+    background: var(--surface0);
+    color: var(--subtext0);
+    padding-inline: .3rem;
+  }
+}

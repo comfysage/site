@@ -1,7 +1,8 @@
 +++
-title = "List of blog posts"
+title = "blog"
+description = "questionable ideas put to paper"
 sort_by = "date"
-template = "blog.html"
-page_template = "blogpost.html"
+template = "pages/blog.tera.html"
+page_template = "pages/post.tera.html"
 +++
 

@@ -1,0 +1,15 @@
+:root {
+  --font-text: 'Space Mono';
+}
+
+html,
+body {
+  background-color: var(--crust);
+  color: var(--text);
+  font-family: var(--font-text), system-ui, sans-serif;
+}
+
+pre,
+code {
+  font-family: var(--font-code), ui-monospace, monospace;
+}

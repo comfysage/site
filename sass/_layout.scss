@@ -1,0 +1,105 @@
+@use "_variables/responsive.scss" as *;
+
+body {
+  container: body / inline-size;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+
+  #page {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template:
+      "grid-sidebar-left grid-header grid-sidebar-right" 12rem
+      "grid-sidebar-left grid-center grid-sidebar-right" auto
+      "grid-sidebar-left grid-footer grid-sidebar-right" 6rem
+      / 320px auto 320px;
+    gap: .32rem;
+  }
+}
+
+#root {
+  container: root / inline-size;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .left {
+    grid-area: grid-sidebar-left;
+  }
+
+  section.main {
+    grid-area: grid-center;
+  }
+
+  .right {
+    grid-area: grid-sidebar-right;
+  }
+
+  .page-header {
+    grid-area: grid-header;
+    margin: $top-margin 0 0;
+  }
+
+  .page-footer {
+    grid-area: grid-footer;
+    margin: 0 0 1.8rem;
+  }
+}
+
+#root {
+  .sidebar {
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    padding: $top-margin 2rem 2rem;
+
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: $bp-mobile) and (max-width: $bp-desktop) {
+  #page {
+    grid-template:
+      "grid-sidebar-left grid-header"
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-sidebar-right"
+      "grid-sidebar-left grid-footer"
+      / 320px auto;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  #page {
+    grid-template:
+      "grid-sidebar-left"
+      "grid-header"
+      "grid-center"
+      "grid-sidebar-right"
+      "grid-footer"
+      / auto;
+  }
+}
+
+//
+
+#main {
+  container: main-page / inline-size;
+
+  margin-top: 2rem;
+}
+
+#main,
+.page-footer {
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

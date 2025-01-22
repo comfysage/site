@@ -1,0 +1,9 @@
+a {
+  color: var(--special);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--special);
+    text-decoration: underline;
+  }
+}
