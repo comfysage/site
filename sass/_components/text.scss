@@ -1,14 +1,62 @@
-p {
-  line-height: 1.6rem;
+.page {
+  // paragraphs
+  p {
+    line-height: 1.6rem;
+    overflow-wrap: anywhere;
 
-  &.subtle {
-    color: var(--subtext0);
+    margin: 1rem 0;
+
+    &.subtle {
+      color: var(--subtext0);
+    }
+
+    // inline code
+    &>code {
+      background: var(--surface0);
+      color: var(--subtext0);
+      padding: .12rem .24rem;
+    }
   }
 
-  // inline code
-  &>code {
-    background: var(--surface0);
-    color: var(--subtext0);
-    padding-inline: .3rem;
+  // spacing
+  hr {
+    color: var(--overlay0);
+    border: none;
+    width: 100%;
+    height: 1px;
+    margin: 2rem auto;
+  }
+
+  // headers
+  h1 {
+    margin: 2.25rem 0 1rem;
+    font-size: 1.75rem
+  }
+
+  h2 {
+    margin: 1.9rem 0 1rem;
+    font-size: 1.4rem
+  }
+
+  h3 {
+    margin: 1.62rem 0 1rem;
+    font-size: 1.12rem
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin: 1.5rem 0 1rem;
+    font-size: 1rem
+  }
+
+  // lists
+  ul {
+    list-style-position: inside;
+      list-style-type: '- ';
+
+    li {
+      padding-left: .5rem;
+    }
   }
 }
