@@ -1,4 +1,5 @@
 .text {
+
   // paragraphs
   p {
     line-height: 1.6rem;
@@ -55,7 +56,7 @@
   // lists
   ul {
     list-style-position: inside;
-      list-style-type: '- ';
+    list-style-type: '- ';
 
     li {
       padding-left: .5rem;
