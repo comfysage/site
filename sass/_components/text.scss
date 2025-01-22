@@ -4,7 +4,7 @@
     line-height: 1.6rem;
     overflow-wrap: anywhere;
 
-    margin: 1rem 0;
+    margin: .5rem 0;
 
     &.subtle {
       color: var(--subtext0);
@@ -27,26 +27,28 @@
     margin: 2rem auto;
   }
 
+  --h-margin-b: .8rem;
+
   // headers
   h1 {
-    margin: 2.25rem 0 1rem;
+    margin: 2.25rem 0 var(--h-margin-b);
     font-size: 1.75rem
   }
 
   h2 {
-    margin: 1.9rem 0 1rem;
+    margin: 1.9rem 0 var(--h-margin-b);
     font-size: 1.4rem
   }
 
   h3 {
-    margin: 1.62rem 0 1rem;
+    margin: 1.62rem 0 var(--h-margin-b);
     font-size: 1.12rem
   }
 
   h4,
   h5,
   h6 {
-    margin: 1.5rem 0 1rem;
+    margin: 1.5rem 0 var(--h-margin-b);
     font-size: 1rem
   }
 
