@@ -9,6 +9,9 @@ compile_sass = true
 
 build_search_index = true
 
+[search]
+index_format = "elasticlunr_json"
+
 [markdown]
 highlight_code = true
 
