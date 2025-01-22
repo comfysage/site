@@ -71,3 +71,41 @@ p.subtitle {
     margin-bottom: 0;
   }
 }
+
+.text pre:has(>code) {
+  --gutter-size: 2rem;
+  margin: .5rem 0;
+  padding: 1rem var(--gutter-size);
+  border: 2px solid var(--border, var(--default-border));
+
+  overflow: auto;
+
+  /* The line numbers already provide some kind of left/right padding */
+  &[data-linenos] {
+    padding: 1rem 0;
+  }
+
+  table td {
+    padding: 0;
+  }
+
+  /* The line number cells */
+  table td:nth-of-type(1) {
+    text-align: center;
+    user-select: none;
+
+    width: var(--gutter-size);
+  }
+
+  mark {
+    /* If you want your highlights to take the full width */
+    display: block;
+    /* The default background colour of a mark is bright yellow */
+    background-color: rgba(254, 252, 232, 0.9);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
