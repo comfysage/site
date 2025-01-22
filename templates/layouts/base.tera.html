@@ -51,10 +51,12 @@
 
         <div class="page-header">
           {% include "partials/breadcrumbs.tera.html" %}
-          {% block pageheader %} {% endblock pageheader %}
+          <div class="text">
+            {% block pageheader %} {% endblock pageheader %}
+          </div>
         </div>
 
-        <section id="main" class="page">
+        <section id="main" class="page text">
           {% block content %} {% endblock content %}
         </section>
 

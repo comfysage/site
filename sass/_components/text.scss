@@ -1,4 +1,4 @@
-.page {
+.text {
   // paragraphs
   p {
     line-height: 1.6rem;
@@ -58,5 +58,13 @@
     li {
       padding-left: .5rem;
     }
+  }
+}
+
+p.subtitle {
+  margin-top: 0;
+
+  .text :has(+ &) {
+    margin-bottom: 0;
   }
 }
