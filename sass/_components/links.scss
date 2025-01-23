@@ -8,15 +8,13 @@ a {
   }
 }
 
-.text {
-  a {
-    border-bottom: 2px solid var(--overlay0);
+.text p a {
+  border-bottom: 2px solid var(--overlay0);
 
-    transition: border-color 300ms ease;
+  transition: border-color 300ms ease;
 
-    &:hover {
-      border-color: var(--special);
-      text-decoration: none;
-    }
+  &:hover {
+    border-color: var(--special);
+    text-decoration: none;
   }
 }
