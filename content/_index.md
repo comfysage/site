@@ -1,6 +1,5 @@
 +++
 title = "home"
-template = "pages/home.tera.html"
 +++
 
 ## how this site was build

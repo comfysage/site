@@ -1,0 +1,34 @@
+{% extends "layouts/base.tera.html" %}
+
+{% block title %}{% set title = section.title %}{% endblock %}
+{% block description %}{% set description = section.description %}{% endblock %}
+
+{% block pageheader %}
+  <h1 class="page-title">{{ section.title }}</h1>
+  <p class="subtitle subtle"><strong>{{ section.description }}</strong></p>
+{% endblock pageheader %}
+
+{% block content %}
+  {{ section.content | safe }}
+{% endblock content %}
+
+{% block right %}
+<div class="datalist">
+<h2>me</h2>
+<ul role="list" data-category="links">
+  <li><a href="https://github.com/comfysage">github</a></li>
+  <li><a href="https://bsky.app/profile/comfysage.bsky.social">bluesky</a></li>
+</ul>
+<h2>tech</h2>
+<ul role="list" data-category="tech">
+  <li><a href="https://github.com/comfysage">github</a></li>
+  <li><a href="https://bsky.app/profile/comfysage.bsky.social">bluesky</a></li>
+</ul>
+<h2>site</h2>
+<ul role="list" data-category="site">
+  <li><a href="https://www.getzola.org">zola</a></li>
+  <li><a href="https://nixos.org">nix</a></li>
+  <li><a href="https://github.com/comfysage/evergarden">evergarden</a></li>
+</ul>
+</div>
+{% endblock right %}
