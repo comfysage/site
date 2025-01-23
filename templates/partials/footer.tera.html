@@ -3,3 +3,13 @@
   <a href="https://ctp-webr.ing/"> catppuccin webring </a>
   <a href="https://ctp-webr.ing/comfysage/next">&rarr;</a>
 </div>
+<div class="device-details">
+</div>
+<script>
+function setDeviceDetails(e) {
+  let {width, height} = e.currentTarget.screen;
+  document.querySelector('.device-details').innerText = `${width}x${height}`
+}
+window.addEventListener('load', setDeviceDetails)
+window.addEventListener('resize', setDeviceDetails)
+</script>
