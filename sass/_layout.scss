@@ -136,6 +136,14 @@ body {
   margin-right: auto;
 }
 
+#main > hr {
+  display: none;
+
+  @include notdesktop {
+    display: block;
+  }
+}
+
 //
 
 .spacer {
