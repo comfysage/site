@@ -1,9 +1,10 @@
+title = "robin roses"
 base_url = "https://robinroses.xyz"
 author = "robin roses"
 
 # feeds
 generate_feeds = true
-feed_filenames = ["atom.xml", "rss.xml"]
+feed_filenames = ["feed.xml", "rss.xml"]
 
 compile_sass = true
 
