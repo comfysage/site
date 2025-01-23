@@ -1,3 +1,27 @@
 // breakpoints
 $bp-mobile: 800px;
 $bp-desktop: 1200px;
+
+@mixin notdesktop() {
+  @media not (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin ondesktop() {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin onmobile() {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin ontablet() {
+  @media (min-width: $bp-mobile) and (max-width: $bp-desktop) {
+    @content;
+  }
+}

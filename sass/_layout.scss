@@ -31,13 +31,18 @@ body {
   gap: .32rem;
 }
 
-@media (max-width: $bp-mobile) {
-  #root>#page {
+#root>#page {
+  @include notdesktop() {
+    padding: 0 4rem 0 0;
+  }
+
+  @include onmobile() {
     padding: 0 2rem;
     --top-margin: 0;
     --header-size: var(--df-header-size);
   }
 }
+
 
 #root {
   container: root / inline-size;
@@ -80,24 +85,25 @@ body {
   }
 }
 
-@media not (min-width: $bp-desktop) {
-  #root>#page .sidebar.right {
-    position: initial;
-    height: auto;
-    padding: 0;
+#root>#page .sidebar {
+  &.right {
+    @include notdesktop() {
+      position: initial;
+      height: auto;
+      padding: 0;
+    }
+  }
+  &.left {
+    @include onmobile() {
+      position: initial;
+      height: auto;
+      padding: 2rem 0 0;
+    }
   }
 }
 
-@media (max-width: $bp-mobile) {
-  #root>#page .sidebar.left {
-    position: initial;
-    height: auto;
-    padding: 2rem 0 0;
-  }
-}
-
-@media (min-width: $bp-mobile) and (max-width: $bp-desktop) {
-  #root>#page {
+#root>#page {
+  @include ontablet() {
     grid-template:
       "grid-sidebar-left grid-header" var(--header-size)
       "grid-sidebar-left grid-center" auto
@@ -105,10 +111,7 @@ body {
       "grid-sidebar-left grid-footer" var(--footer-size)
       / 320px auto;
   }
-}
-
-@media (max-width: $bp-mobile) {
-  #root>#page {
+  @include onmobile() {
     grid-template:
       "grid-sidebar-left" 6rem
       "grid-header" var(--header-size)
@@ -136,15 +139,18 @@ body {
 //
 
 .spacer {
-    flex: auto;
+  flex: auto;
 }
 
-.mobile-only {
-    display: none;
+[onmobile] {
+  display: none;
+  @include onmobile() {
+    display: initial;
+  }
 }
-
-@media (max-width: 800px) {
-    .mobile-only {
-        display: initial;
-    }
+[ontablet] {
+  display: none;
+  @include ontablet() {
+    display: initial;
+  }
 }
