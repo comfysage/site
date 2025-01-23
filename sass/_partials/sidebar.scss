@@ -16,3 +16,20 @@
     flex-direction: row;
   }
 }
+
+#header a {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    height: 32px;
+    aspect-ratio: 1/1;
+
+    margin: .6rem;
+
+    mask-image: url('/favicon.svg');
+    mask-position: center;
+    mask-size: contain;
+    background-color: var(--special);
+  }
+}
