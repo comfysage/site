@@ -132,3 +132,19 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+//
+
+.spacer {
+    flex: auto;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .mobile-only {
+        display: initial;
+    }
+}
