@@ -7,3 +7,16 @@ a {
     text-decoration: underline;
   }
 }
+
+.text {
+  a {
+    border-bottom: 2px solid var(--overlay0);
+
+    transition: border-color 300ms ease;
+
+    &:hover {
+      border-color: var(--special);
+      text-decoration: none;
+    }
+  }
+}
