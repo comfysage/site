@@ -11,9 +11,50 @@ compile_sass = true
 build_search_index = true
 
 [search]
+# Whether to include the title of the page/section in the index
+include_title = true
+
+# Whether to include the description of the page/section in the index
+include_description = true
+
+# Whether to include the RFC3339 datetime of the page in the search index
+include_date = false
+
+# Whether to include the path of the page/section in the index (the permalink is always included)
+include_path = false
+
+# Whether to include the rendered content of the page/section in the index
+include_content = true
+
+# At which code point to truncate the content to. Useful if you have a lot of pages and the index would
+# become too big to load on the site. Defaults to not being set.
+truncate_content_length = 80
+
 index_format = "elasticlunr_json"
 
 [markdown]
 highlight_code = true
+
+# open external links in a new tab
+external_links_target_blank = true
+
+# render :emoji: to glyphs
+render_emoji = true
+
+# Whether smart punctuation is enabled (changing quotes, dashes, dots in their typographic form)
+# For example, `...` into `…`, `"quote"` into `“curly”` etc
+smart_punctuation = false
+
+# Whether to set decoding="async" and loading="lazy" for all images
+# When turned on, the alt text must be plain text.
+# For example, `![xx](...)` is ok but `![*x*x](...)` isn’t ok
+lazy_async_image = true
+
+# Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
+bottom_footnotes = true
+
+[slugify]
+# replace non ([a-z-]) characters
+paths = "safe"
 
 [extra]
