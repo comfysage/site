@@ -25,6 +25,48 @@
     }
   }
 
+  // blockquotes
+  blockquote {
+    --border: var(--overlay0);
+    margin: var(--text-margin) 0;
+    padding-left: 1rem;
+
+    border-left: 4px solid var(--border, var(--default-border));
+    transition: border-color .2s;
+
+    // quote
+    &.quote {
+      p {
+        color: var(--subtext0);
+
+        &.quote__body {
+          font-style: italic;
+        }
+      }
+    }
+
+    // callouts
+    h3 {
+      color: var(--border);
+    }
+
+    &.info {
+      --border: var(--blue);
+    }
+
+    &.warn {
+      --border: var(--yellow);
+    }
+
+    &.caution {
+      --border: var(--red);
+    }
+
+    &.note {
+      --border: var(--aqua);
+    }
+  }
+
   --h-margin-b: .8rem;
 
   // headers
