@@ -1,0 +1,28 @@
+[info.flags]
+title = "flags"
+description = "cool looking flags"
+
+[info.people]
+title = "frends :)"
+description = "some awesome people with pretty sites (or was it the other way around?)"
+
+[flags.lesbian]
+url = "https://lgbtqia.wiki/wiki/Lesbian"
+img = "https://github.com/TheFelidae/88x31/raw/main/images/pride/badge_lesbian.gif"
+
+[flags.transgender]
+url = "https://lgbtqia.wiki/wiki/Transgender"
+img = "https://github.com/TheFelidae/88x31/raw/main/images/pride/badge_transgender.gif"
+
+[flags.nonbinary]
+url = "https://lgbtqia.wiki/wiki/Non-Binary"
+img = "https://github.com/TheFelidae/88x31/raw/main/images/pride/badge_nonbinary.gif"
+
+[people.trinkey]
+url = "https://trinkey.com"
+img = "https://trinkey.com/img/88x31.png"
+alt = "trinkey's 88x31. image of her cat on the right with the word 'trinkey' taking up the rest of the button."
+
+[people.isabelroses]
+url = "https://isabelroses.com"
+img = "https://isabelroses.com/static/badges/me.gif"

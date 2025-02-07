@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{% set title = page.title %}{% endblock %}
+{% block description %}{% set description = page.description %}{% endblock %}
+
+{% block pageheader %}
+  <h1 class="page-title">{{ page.title }}</h1>
+  <p class="subtitle subtle"><strong>{{ page.description }}</strong></p>
+{% endblock pageheader %}
+
+{% block content %}
+  {% set data = load_data(path="static/badges/data.toml") %}
+
+  <section class="me">
+    <a target="_blank" href="{{ config.base_url }}">
+      <img width="88" height="31"
+        src="{{ get_url(path="/badges/me.gif") }}"
+        alt="robin's 88x31'"
+      />
+    </a>
+
+  <pre><code><textarea readonly>
+    <img width="88" height="31"
+      src="{{ get_url(path="/badges/me.gif") }}"
+      alt="robin's 88x31'"
+    />
+  </textarea></code></pre>
+
+  </section>
+
+  <section class="flags">
+    <h2>
+      {{ data.info.flags.title }}
+    </h2>
+    <p class="subtitle">
+      {{ data.info.flags.description }}
+    </p>
+
+    {% for name, flag in data.flags %}
+    <a target="_blank" href="{{flag.url}}">
+      <img width="88" height="31"
+        src="{{flag.img}}"
+        alt="88x31 of the {{name}} flag'"
+      />
+    </a>
+    {% endfor %}
+  </section>
+
+  <section class="people">
+    <h2>
+      {{ data.info.people.title }}
+    </h2>
+    <p class="subtitle">
+      {{ data.info.people.description }}
+    </p>
+
+    {% for name, person in data.people %}
+    <a target="_blank" href="{{person.url}}">
+      <img width="88" height="31"
+        src="{{person.img}}"
+        {% if person.alt %}
+        alt="{{person.alt}}"
+        {% else %}
+        alt="{{name}}'s 88x31'"
+        {% endif %}
+      />
+    </a>
+    {% endfor %}
+  </section>
+{% endblock content %}
