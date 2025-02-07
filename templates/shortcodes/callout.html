@@ -1,6 +1,6 @@
 {#
   {% callout(class="info") %}
-    some extra info
+    an *important* notice
   {% end %}
 #}
 
@@ -13,6 +13,6 @@
   {% endif %}
   {% endif %}
   <p>
-    {{ body }}
+    {{ body | markdown(inline=true) | safe }}
   </p>
 </blockquote>

@@ -1,16 +1,16 @@
 {#
-  {% quote(author="me, bitch") %}
-    im fucking awesome
+  {% quote(author="[me](/home), bitch") %}
+    im fucking *awesome*
   {% end %}
 #}
 
 <blockquote class="quote">
   <p class="quote__body">
-    “{{ body }}”
+    “{{ body | markdown(inline=true) | safe }}”
   </p>
   {% if author %}
   <p class="author">
-    ~ {{author}}
+    ~ {{ author | markdown(inline=true) | safe }}
   </p>
   {% endif %}
 </blockquote>
