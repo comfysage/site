@@ -37,6 +37,8 @@
     <link rel=”mask-icon” href=”/favicon.svg” color=”#b2c98f">
 
     <link rel="stylesheet" href="{{ get_url(path='/style.css') }}" />
+    {% set page_path = current_path | trim_end_matches(pat="/") %}
+    <link rel="stylesheet" href="{{ get_url(path='/styles/pages' ~ page_path ~ '.css') }}" />
     {% endblock head %}
 
     {% block additionalHead %} {% endblock additionalHead %}
