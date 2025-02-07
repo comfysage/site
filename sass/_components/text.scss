@@ -1,3 +1,7 @@
+:root {
+  --text-margin: .8rem;
+}
+
 .text {
 
   // paragraphs
@@ -5,7 +9,7 @@
     line-height: 1.6rem;
     overflow-wrap: anywhere;
 
-    margin: .5rem 0;
+    margin: var(--text-margin) 0;
 
     &.subtle {
       color: var(--subtext0);
