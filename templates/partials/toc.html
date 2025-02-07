@@ -1,0 +1,20 @@
+{% macro create_item(item, level=1) %}
+  <li data-level={{level}}>
+    <a href="{{ item.permalink | safe }}">{{ item.title }}</a>
+    {% if item.children %}
+      <ul>
+        {% for child in item.children %}
+        {{ self::create_item(item=child, level=level+1) }}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+{% endmacro create_item %}
+
+{% macro generate(toc) %}
+  <ul class="toc">
+    {% for h1 in toc %}
+    {{ self::create_item(item=h1) }}
+    {% endfor %}
+  </ul>
+{% endmacro generate %}

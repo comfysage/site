@@ -1,4 +1,5 @@
 {% extends "layouts/base.html" %}
+{% import "partials/toc.html" as toc %}
 
 {% block title %}{% set title = page.title %}{% endblock %}
 {% block description %}{% set description = page.description %}{% endblock %}
@@ -11,3 +12,9 @@
 {% block content %}
   {{ page.content | safe }}
 {% endblock content %}
+
+{% block right %}
+  {% if page.toc %}
+  {{ toc::generate(toc=page.toc) }}
+  {% endif %}
+{% endblock right %}
