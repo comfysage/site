@@ -1,5 +1,9 @@
+// default links
+// normal: special fg
+// hover: underlined
 a {
   color: var(--special);
+  // font-weight: 600;
   text-decoration: none;
 
   &:hover {
@@ -8,13 +12,65 @@ a {
   }
 }
 
-.text p a {
-  border-bottom: 2px solid var(--overlay0);
+// default (internal) links in text
+// normal: special fg with special accent background
+// hover: bg becomes more opaque
+.text p {
+  a:not([target="_blank"]) {
+    --bg-opacity: 8%;
+    background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
+    transition: var(--bg-opacity) 300ms ease;
 
-  transition: border-color 300ms ease;
+    line-height: 1.4rem;
+    padding: 0 .1rem;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    &:hover {
+      --bg-opacity: 12%;
+
+      text-decoration: none;
+    }
+  }
+
+  // external links
+  a[target="_blank"] {
+    border-bottom: 2px solid var(--overlay0);
+
+    transition: border-color 300ms ease;
+
+    &:hover {
+      border-color: var(--special);
+      text-decoration: none;
+    }
+  }
+}
+
+a.datalink {
+  // fixes arrow alignment
+  vertical-align: middle;
+
+  margin-right: .6rem;
 
   &:hover {
-    border-color: var(--special);
     text-decoration: none;
+
+    &::after {
+      padding-left: .4rem;
+      color: var(--special);
+    }
+  }
+
+  &::after {
+    content: '->';
+    position: absolute;
+    font-size: 1.2rem;
+
+    transition: padding-left 300ms ease-out,
+      color 300ms ease-out;
+
+    padding-left: .2rem;
+    color: var(--overlay0);
   }
 }
