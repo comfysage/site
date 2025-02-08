@@ -1,5 +1,8 @@
 prefix := 'dist'
 
+dev:
+  zola serve -p 3000
+
 build:
   zola build
 
