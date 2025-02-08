@@ -112,28 +112,31 @@ p.subtitle {
 }
 
 .text pre:has(>code) {
+  --cb-padding: 1rem;
   --gutter-size: 2rem;
   margin: .5rem 0;
-  padding: 1rem var(--gutter-size);
+  padding: var(--cb-padding) var(--gutter-size, var(--cb-padding));
   border: 2px solid var(--border, var(--default-border));
 
   overflow: auto;
 
   /* The line numbers already provide some kind of left/right padding */
   &[data-linenos] {
-    padding: 1rem 0;
+    padding: var(--cb-padding) 0;
   }
 
   table td {
     padding: 0;
-  }
 
-  /* The line number cells */
-  table td:nth-of-type(1) {
-    text-align: center;
-    user-select: none;
+    /* The line number cells */
+    &:nth-of-type(1) {
+      text-align: center;
+      user-select: none;
 
-    width: var(--gutter-size);
+      width: var(--gutter-size);
+
+      color: var(--overlay0);
+    }
   }
 
   mark {
