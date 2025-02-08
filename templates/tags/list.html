@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{% set title = taxonomy.name %}{% endblock %}
+{% block description %}{% set description = taxonomy.name ~ ' list' %}{% endblock %}
+
+{% block pageheader %}
+  <h1 class="page-title">{{ taxonomy.name }}</h1>
+{% endblock pageheader %}
+
+{% block content %}
+  <ul>
+    {% for term in terms %}
+      <li><a href="{{term.permalink}}">{{ term.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

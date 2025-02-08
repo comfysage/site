@@ -2,6 +2,8 @@
 title = "building this site"
 date = 2025-01-22
 description = "my tiny adventure in static site generation"
+[taxonomies]
+tags = ["site"]
 +++
 
 ## static site generation

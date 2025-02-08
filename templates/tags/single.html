@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{% set title = taxonomy.name ~ '/' ~ term.name %}{% endblock %}
+{% block description %}{% set description = term.name ~ ' tag' %}{% endblock %}
+
+{% block pageheader %}
+  <h1 class="page-title"><span class="subtle">{{taxonomy.name}}/</span>{{ term.name }}</h1>
+{% endblock pageheader %}
+
+{% block content %}
+  <ul class="blog-previews">
+    {% for page in term.pages %}
+      {% include "partials/blogpreview.html" %}
+    {% endfor %}
+  </ul>
+{% endblock content %}

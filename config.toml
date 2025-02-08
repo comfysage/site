@@ -10,6 +10,8 @@ compile_sass = true
 
 build_search_index = true
 
+taxonomies = [{ name = "tags", feed = true }]
+
 [search]
 # Whether to include the title of the page/section in the index
 include_title = true
