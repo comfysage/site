@@ -11,7 +11,9 @@
 
 ul[role='list'],
 ol[role='list'] {
-  list-style: none;
+  &, .text & {
+    list-style: none;
+  }
 }
 
 html:focus-within {

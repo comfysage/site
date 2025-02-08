@@ -5,9 +5,15 @@
 {% block description %}{% set description = page.description %}{% endblock %}
 
 {% block pageheader %}
+  {% set tags = get_taxonomy(kind="tags") %}
   <h1 class="page-title">{{ page.title }}</h1>
   <p class="subtitle subtle"><strong>{{ page.description }}</strong></p>
   <p class="subtitle subtle"><strong>{{ page.date }}</strong></p>
+  <ul role="list" class="tag-list">
+    {% for tag in tags.items %}
+      <li><a href="{{tag.permalink}}">#{{tag.name}}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock pageheader %}
 
 {% block content %}

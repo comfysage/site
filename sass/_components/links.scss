@@ -1,3 +1,20 @@
+%link-internal {
+  --bg-opacity: 8%;
+  background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
+  transition: var(--bg-opacity) 300ms ease;
+
+  padding: 0 .4rem;
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  &:hover {
+    --bg-opacity: 12%;
+
+    text-decoration: none;
+  }
+}
+
 // default links
 // normal: special fg
 // hover: underlined
@@ -17,20 +34,7 @@ a {
 // hover: bg becomes more opaque
 .text p {
   a:not([target="_blank"]) {
-    --bg-opacity: 8%;
-    background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
-    transition: var(--bg-opacity) 300ms ease;
-
-    padding: 0 .4rem;
-    border-radius: 6px;
-
-    text-decoration: none;
-
-    &:hover {
-      --bg-opacity: 12%;
-
-      text-decoration: none;
-    }
+    @extend %link-internal;
   }
 
   // external links
@@ -93,5 +97,11 @@ a.heading-anchor {
     :hover > & {
       color: var(--overlay2);
     }
+  }
+}
+
+.page-header ul.tag-list {
+  a {
+    @extend %link-internal;
   }
 }

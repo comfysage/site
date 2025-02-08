@@ -1,3 +1,8 @@
 .breadcrumbs {
   color: var(--overlay1);
 }
+
+// unset list item padding for tag list
+.text .tag-list li {
+  padding-left: initial;
+}
