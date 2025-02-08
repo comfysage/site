@@ -1,0 +1,10 @@
+{% block additionalHead %}
+<meta http-equiv="refresh" content="0; url={{ page.extra.redirect_link | safe }}" />
+<script type="text/javascript">
+  window.location.href = "{{ page.extra.redirect_link | safe }}"
+</script>
+{% endblock additionalHead %}
+
+{% block content %}
+If you are not redirected automatically, follow this <a href='{{ page.extra.redirect_link | safe }}'>link</a>.
+{% endblock %}
