@@ -11,9 +11,6 @@ ul.toc {
   }
 
   li[data-level] {
-    // hide items by default
-    display: none;
-
     padding: 0 0 0 1rem;
 
     a {
@@ -21,57 +18,11 @@ ul.toc {
 
       transition: color 100ms ease;
 
+      color: var(--surface1);
+      text-decoration: none;
+
       &:hover {
-        color: var(--surface1) !important;
-        text-decoration: none;
-      }
-    }
-
-    &[data-level="1"] {
-      display: revert;
-
-      a {
-        color: var(--subtext1);
-      }
-    }
-
-    &[data-level="2"] {
-      display: revert;
-
-      a {
         color: var(--subtext0);
-      }
-    }
-
-    &[data-level="3"] {
-      display: revert;
-
-      a {
-        color: var(--overlay2);
-      }
-    }
-
-    &[data-level="4"] {
-      display: revert;
-
-      a {
-        color: var(--overlay1);
-      }
-    }
-
-    &[data-level="5"] {
-      display: revert;
-
-      a {
-        color: var(--overlay0);
-      }
-    }
-
-    &[data-level="6"] {
-      display: revert;
-
-      a {
-        color: var(--surface2);
       }
     }
   }
