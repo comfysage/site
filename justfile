@@ -1,3 +1,5 @@
+default: build
+
 prefix := 'dist'
 
 dev:
