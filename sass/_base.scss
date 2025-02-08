@@ -12,4 +12,5 @@ body {
 pre,
 code {
   font-family: var(--font-code), ui-monospace, monospace;
+  font-variant-ligatures: none;
 }
