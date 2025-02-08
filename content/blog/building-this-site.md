@@ -83,3 +83,7 @@ stdenvNoCC.mkDerivation {
 ```
 
 deployment is done using a single github action you can find [here](https://github.com/comfysage/site/blob/6a576c27f773cecbb3aec5adfc844d0efca7cddf/.github/workflows/deploy.yml).
+
+## resources
+
+also *none* of this would've been possible without the amazing support and help from [isabelroses](https://github.com/isabelroses).
