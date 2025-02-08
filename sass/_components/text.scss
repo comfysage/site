@@ -3,7 +3,6 @@
 }
 
 .text {
-
   // paragraphs
   p {
     line-height: 1.6rem;
@@ -13,9 +12,6 @@
 
     color: var(--text);
 
-    &.subtle {
-      color: var(--subtext0);
-    }
 
     // inline code
     &>code {
@@ -24,6 +20,10 @@
 
       padding: .0rem .4rem;
     }
+  }
+
+  .subtle {
+    color: var(--subtext0);
   }
 
   // blockquotes
