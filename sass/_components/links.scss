@@ -73,3 +73,25 @@ a.datalink {
     color: var(--overlay0);
   }
 }
+
+a.heading-anchor {
+  position: relative;
+
+  &::before {
+    content: '#';
+    position: absolute;
+    display: inline-block;
+    left: -1rem;
+
+    font-style: italic;
+    vertical-align: middle;
+
+    color: var(--overlay0);
+
+    transition: color 100ms ease-in;
+
+    :hover > & {
+      color: var(--overlay2);
+    }
+  }
+}
