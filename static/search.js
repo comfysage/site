@@ -131,10 +131,33 @@ function formatSearchResultItem(item, terms) {
 function initSearch() {
   console.log('[search] init')
   let $searchButton = document.querySelector(".search-button")
-  let $searchContainer = document.querySelector("dialog.search-container")
+  let $searchDialog = document.querySelector("dialog.search-dialog")
+  let $searchContainer = document.querySelector(".search-container")
+
+  $searchContainer.addEventListener('focusout', (e) => {
+    const self = e.currentTarget;
+    // If the document has lost focus, don't hide the container just yet, wait
+    // until the focus is returned.
+    if (!document.hasFocus()) {
+      window.addEventListener('focus', function focusReturn() {
+        // We want the listener to be triggered just once, so we have it remove
+        // itself from the `focus` event.
+        window.removeEventListener('focus', focusReturn);
+
+        // Test whether the active element is within our container.
+        if (!self.contains(document.activeElement)) {
+          $searchDialog.close()
+        }
+      });
+      return;
+    }
+    if (!self.contains(e.relatedTarget)) {
+      $searchDialog.close()
+    }
+  })
 
   $searchButton.addEventListener('click', () => {
-    $searchContainer.showModal()
+    $searchDialog.showModal()
   })
 
   var $searchInput = document.getElementById("search");
