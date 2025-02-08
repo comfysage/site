@@ -3,9 +3,6 @@
 // sizes
 :root {
   --top-margin: 6rem;
-
-  --df-header-size: 8rem;
-  --header-size: calc(var(--top-margin) + var(--df-header-size));
   --footer-size: 6rem;
 }
 
@@ -24,8 +21,8 @@ body {
 #page {
   display: grid;
   grid-template:
-    "grid-sidebar-left grid-header grid-sidebar-right" var(--header-size)
-    "grid-sidebar-left grid-center grid-sidebar-right" auto
+    "grid-sidebar-left grid-header grid-sidebar-right" auto
+    "grid-sidebar-left grid-center grid-sidebar-right" 1fr
     "grid-sidebar-left grid-footer grid-sidebar-right" var(--footer-size)
     / 320px auto 320px;
   gap: .32rem;
@@ -105,8 +102,8 @@ body {
 #root>#page {
   @include ontablet() {
     grid-template:
-      "grid-sidebar-left grid-header" var(--header-size)
-      "grid-sidebar-left grid-center" auto
+      "grid-sidebar-left grid-header" auto
+      "grid-sidebar-left grid-center" 1fr
       "grid-sidebar-left grid-sidebar-right" auto
       "grid-sidebar-left grid-footer" var(--footer-size)
       / 320px auto;
@@ -114,8 +111,8 @@ body {
   @include onmobile() {
     grid-template:
       "grid-sidebar-left" 6rem
-      "grid-header" var(--header-size)
-      "grid-center" auto
+      "grid-header" auto
+      "grid-center" 1fr
       "grid-sidebar-right" auto
       "grid-footer" var(--footer-size)
       / auto;
