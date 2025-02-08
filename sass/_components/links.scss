@@ -51,6 +51,7 @@ a {
 }
 
 a.datalink {
+  position: relative;
   // fixes arrow alignment
   vertical-align: middle;
 
@@ -68,6 +69,7 @@ a.datalink {
   &::after {
     content: '->';
     position: absolute;
+    width: max-content;
     font-size: 1.2rem;
 
     transition: padding-left 300ms ease-out,
