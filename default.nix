@@ -3,6 +3,7 @@
   version,
   stdenvNoCC,
 
+  just,
   zola,
 }:
 let
@@ -14,23 +15,15 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [
+    just
     zola
   ];
 
-  buildPhase = ''
-    runHook preBuild
-    zola build
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out
-    cp -r public/* $out
-
-    runHook postInstall
-  '';
+  justFlags = [
+    "--set"
+    "prefix"
+    (placeholder "out")
+  ];
 
   meta = {
     homepage = "https://robinroses.xyz";
