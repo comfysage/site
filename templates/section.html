@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{% set title = section.title %}{% endblock %}
+{% block description %}{% set description = section.description %}{% endblock %}
+
+{% block pageheader %}
+  <h1 class="page-title">{{ section.title }}</h1>
+  <p class="subtitle subtle"><strong>{{ section.description }}</strong></p>
+{% endblock pageheader %}
+
+{% block content %}
+  {{ section.content | safe }}
+{% endblock content %}
