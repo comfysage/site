@@ -12,11 +12,21 @@
   }
 }
 
+.sidebar.left {
+  .top, .info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: $bp-mobile) {
   #root>#page .sidebar.left {
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
+    .top {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+    }
   }
 }
 
