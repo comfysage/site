@@ -12,9 +12,12 @@
 {% endmacro create_item %}
 
 {% macro generate(toc) %}
+<div class="section">
+  <h3> outline </h3>
   <ul class="toc">
     {% for h1 in toc %}
     {{ self::create_item(item=h1) }}
     {% endfor %}
   </ul>
+</div>
 {% endmacro generate %}
