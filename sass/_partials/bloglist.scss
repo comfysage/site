@@ -1,0 +1,19 @@
+.bloglist {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  .blogitem {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: .2rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+    .subtitle {
+      color: var(--subtext0);
+      font-size: .8rem;
+    }
+  }
+}

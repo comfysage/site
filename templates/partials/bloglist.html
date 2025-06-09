@@ -1,0 +1,17 @@
+{% set section = get_section(path="blog/_index.md") %}
+
+<div class="section">
+<h3> blog </h3>
+<ul class="bloglist">
+  {% for page in section.pages %}
+  <li class="blogitem">
+    <a href="{{ page.permalink | safe }}">
+    <h2>{{ page.title }}</h2>
+    </a>
+    <div class="subtitle">
+      <div class="date">{{ page.date }}</div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+</div>
