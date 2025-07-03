@@ -1,7 +1,7 @@
 @mixin surface {
   border-radius: 6px;
-  background-color: var(--base);
-  --border: var(--surface0);
+  background-color: var(--surface0);
+  --border: var(--surface1);
   border: 1px solid var(--border, var(--default-border));
 }
 
