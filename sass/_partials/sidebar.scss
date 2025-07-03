@@ -18,6 +18,12 @@
     flex-direction: column;
     gap: 2rem;
   }
+
+  .info {
+    @include onmobile() {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: $bp-mobile) {
