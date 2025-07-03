@@ -48,7 +48,9 @@
     <div id="root">
       <div id="page">
         <div class="left sidebar">
-          {% include "partials/sidebar.html" %}
+          {% block left %}
+            {% include "partials/sidebar.html" %}
+          {% endblock left %}
         </div>
 
         <div class="page-header">

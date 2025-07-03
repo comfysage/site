@@ -22,8 +22,8 @@
   {{ page.content | safe }}
 {% endblock content %}
 
-{% block right %}
+{% block left %}
   {% if page.toc %}
   {{ toc::generate(toc=page.toc) }}
   {% endif %}
-{% endblock right %}
+{% endblock left %}
