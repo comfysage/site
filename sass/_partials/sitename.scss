@@ -1,7 +1,31 @@
+@use "../_variables/responsive.scss" as *;
+
 .sitename {
+  display: flex;
+  justify-content: space-between;
+
   a {
     color: var(--subtext1);
   }
 
   padding: 0 0 1rem;
+
+  .navbar {
+    display: none;
+
+    @include onmobile() {
+      display: inline;
+    }
+
+    ul {
+      flex-direction: row;
+      padding: 0;
+      border: 0;
+      background: none;
+
+      li:nth-child(1) {
+        display: none;
+      }
+    }
+  }
 }
