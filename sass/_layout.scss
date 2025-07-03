@@ -4,6 +4,7 @@
 :root {
   --top-margin: 6rem;
   --footer-size: 6rem;
+  --center-size: 960px;
 }
 
 body {
@@ -24,8 +25,12 @@ body {
     "grid-sidebar-left grid-header grid-sidebar-right" auto
     "grid-sidebar-left grid-center grid-sidebar-right" 1fr
     "grid-sidebar-left grid-footer grid-sidebar-right" var(--footer-size)
-    / 320px auto 320px;
+    / 320px minmax(min-content, var(--center-size)) 320px;
   gap: .32rem;
+
+  overflow: auto;
+
+  justify-content: center;
 }
 
 #root>#page {
@@ -43,8 +48,8 @@ body {
 
 #root {
   container: root / inline-size;
-  max-width: 1600px;
-  margin: 0 auto;
+
+  overflow: auto;
 
   .left {
     grid-area: grid-sidebar-left;
@@ -103,7 +108,7 @@ body {
       "grid-sidebar-left grid-center" 1fr
       "grid-sidebar-left grid-sidebar-right" auto
       "grid-sidebar-left grid-footer" var(--footer-size)
-      / 320px auto;
+      / 320px minmax(min-content, var(--center-size));
   }
   @include onmobile() {
     grid-template:
@@ -112,7 +117,7 @@ body {
       "grid-center" 1fr
       "grid-sidebar-right" auto
       "grid-footer" var(--footer-size)
-      / auto;
+      / minmax(min-content, var(--center-size));
   }
 }
 
