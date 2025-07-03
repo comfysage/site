@@ -7,6 +7,10 @@ ul.toc {
   li[data-level] {
     padding: 0 0 0 1rem;
 
+    &[data-level="1"] {
+      padding: 0;
+    }
+
     a {
       font-size: 1.2rem;
 
