@@ -3,7 +3,6 @@
 // sizes
 :root {
   --top-margin: 6rem;
-  --footer-size: 6rem;
   --center-size: 960px;
 }
 
@@ -24,7 +23,7 @@ body {
   grid-template:
     "grid-sidebar-left grid-header grid-sidebar-right" auto
     "grid-sidebar-left grid-center grid-sidebar-right" 1fr
-    "grid-sidebar-left grid-footer grid-sidebar-right" var(--footer-size)
+    "grid-sidebar-left grid-footer grid-sidebar-right" min-content
     / 320px minmax(min-content, var(--center-size)) 320px;
   gap: .32rem;
 
@@ -70,7 +69,7 @@ body {
 
   .page-footer {
     grid-area: grid-footer;
-    margin: 0 0 1.8rem;
+    margin: 1.8rem 0;
   }
 }
 
@@ -107,7 +106,7 @@ body {
       "grid-sidebar-left grid-header" auto
       "grid-sidebar-left grid-center" 1fr
       "grid-sidebar-left grid-sidebar-right" auto
-      "grid-sidebar-left grid-footer" var(--footer-size)
+      "grid-sidebar-left grid-footer" min-content
       / 320px minmax(min-content, var(--center-size));
   }
   @include onmobile() {
@@ -116,7 +115,7 @@ body {
       "grid-header" auto
       "grid-center" 1fr
       "grid-sidebar-right" auto
-      "grid-footer" var(--footer-size)
+      "grid-footer" min-content
       / minmax(min-content, var(--center-size));
   }
 }
