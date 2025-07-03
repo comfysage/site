@@ -2,7 +2,7 @@
 title = "home"
 +++
 
-# 🪴 garden
+## 🪴 garden
 
 welcome to my internet garden, a cozy corner of the internet for storing my ideas and sharing what i'm working on.
 
