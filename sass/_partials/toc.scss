@@ -12,15 +12,13 @@ ul.toc {
     }
 
     a {
-      font-size: 1.2rem;
-
       transition: color 100ms ease;
 
-      color: var(--surface1);
+      color: var(--overlay1);
       text-decoration: none;
 
       &:hover {
-        color: var(--subtext0);
+        color: var(--subtext1);
       }
     }
   }
