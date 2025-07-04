@@ -3,6 +3,7 @@
 }
 
 // unset list item padding for tag list
-.text .tag-list li {
-  padding-left: initial;
+ul.tag-list li {
+  display: inline;
+  padding: 0;
 }
