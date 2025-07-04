@@ -137,6 +137,8 @@ p.subtitle {
   padding: var(--cb-padding) var(--gutter-size, var(--cb-padding));
   border: 2px solid var(--border, var(--default-border));
 
+  background: var(--surface0) !important;
+
   overflow: auto;
 
   /* The line numbers already provide some kind of left/right padding */
