@@ -1,4 +1,4 @@
-.blog-previews {
+ul.blogpost-list {
   display: flex;
   flex-direction: column;
 
@@ -6,27 +6,39 @@
 
   gap: 1.5rem;
 
-  .blogpreview {
+  li.blogpost {
+    display: grid;
+    grid-template: auto auto / 100%;
+
     list-style: none;
+    padding: 1rem;
+    gap: 1rem;
 
-    a {
+    a.blogpost-info {
       display: grid;
-      grid-template-columns: auto auto;
-      justify-content: left;
+      grid-template: "date" auto "title" auto "description" auto / 100%;
 
-      gap: 0 1rem;
+      .title {
+        grid-area: title;
 
-      h2 {
-        margin: 0;
+        margin: .5rem 0rem .2rem;
+        align-self: end;
+
+        color: var(--text);
       }
 
       .date {
-        font-size: 20px;
-        margin-top: .3rem;
+        grid-area: date;
+
+        font-size: .9rem;
+
+        color: var(--overlay2);
       }
 
       .description {
-        grid-column: 2;
+        grid-area: description;
+
+        color: var(--subtext1);
       }
 
       color: var(--overlay2);
@@ -38,6 +50,12 @@
         color: var(--special);
 
         text-decoration: none;
+      }
+    }
+
+    ul.tag-list li {
+      a {
+        color: var(--subtext1);
       }
     }
   }

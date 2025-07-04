@@ -10,9 +10,9 @@
 
 {% block content %}
   {{ section.content | safe }}
-  <ul class="blog-previews">
+  <ul class="blogpost-list">
     {% for page in section.pages %}
-      {% include "partials/blogpreview.html" %}
+      {% include "partials/blogpost.html" %}
     {% endfor %}
   </ul>
 {% endblock content %}

@@ -1,0 +1,12 @@
+<li class="blogpost surface">
+  <a class="blogpost-info" href="{{ page.permalink | safe }}">
+    {% if page.date %}
+    <div class="date">{{ page.date | date(format="%d %b %Y") }}</div>
+    {% endif %}
+    <h2 class="title">{{ page.title }}</h2>
+    {% if page.description %}
+    <div class="description"><em>{{ page.description }}</em></div>
+    {% endif %}
+  </a>
+  {% include "partials/taglist.html" %}
+</li>

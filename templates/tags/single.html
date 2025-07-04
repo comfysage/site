@@ -8,9 +8,9 @@
 {% endblock pageheader %}
 
 {% block content %}
-  <ul class="blog-previews">
+  <ul class="blogpost-list">
     {% for page in term.pages %}
-      {% include "partials/blogpreview.html" %}
+      {% include "partials/blogpost.html" %}
     {% endfor %}
   </ul>
 {% endblock content %}
