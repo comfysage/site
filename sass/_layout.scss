@@ -107,6 +107,22 @@ body {
 }
 
 #root>#page {
+  .page-header {
+    .search {
+      display: none;
+
+      margin: 2rem 0;
+
+      @include onmobile() {
+        display: block;
+        width: min(32rem, 100%);
+        justify-self: center;
+      }
+    }
+  }
+}
+
+#root>#page {
   @include ontablet() {
     grid-template:
       "grid-sidebar-left grid-header" auto
