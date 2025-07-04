@@ -1,0 +1,8 @@
+{% if page.taxonomies.tags %}
+<ul role="list" class="tag-list">
+  {% for tag in page.taxonomies.tags %}
+    {% set url = get_taxonomy_url(kind="tags", name=tag) %}
+    <li><a href="{{url}}">#{{tag}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
