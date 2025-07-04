@@ -6,10 +6,12 @@
   {% for page in section.pages %}
   <li class="blogitem">
     <a href="{{ page.permalink | safe }}">
-    <h2>{{ page.title }}</h2>
+    <h2 class="title">{{ page.title }}</h2>
     </a>
     <div class="subtitle">
-      <div class="date">{{ page.date }}</div>
+      {% if page.date %}
+      <div class="date"><strong>{{ page.date | date(format="%d %b %Y") }}</strong></div>
+      {% endif %}
     </div>
   </li>
   {% endfor %}
