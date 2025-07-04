@@ -102,7 +102,7 @@ a.heading-anchor {
   }
 }
 
-.page-header ul.tag-list {
+.page-header ul.tag-list li {
   a {
     @extend %link-internal;
   }
