@@ -13,27 +13,15 @@
 }
 
 .sidebar.left {
-  .top, .info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .info {
-    @include onmobile() {
-      display: none;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-@media (max-width: $bp-mobile) {
-  #root>#page .sidebar.left {
-    .top {
-      flex-direction: row;
-      align-items: center;
-      gap: 0;
-    }
-  }
+#root>#page .siteheader {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 #header a {

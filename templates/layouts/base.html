@@ -49,6 +49,10 @@
       <div id="page">
         <div class="left sidebar">
           {% block left %}
+            <div class="siteheader">
+              {% include "partials/siteheader.html" %}
+              {% include "partials/search.html" %}
+            </div>
             {% include "partials/sidebar.html" %}
           {% endblock left %}
         </div>
