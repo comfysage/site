@@ -1,19 +1,6 @@
-section {
-  margin: 2rem 0;
-
-  &~& {
-    border-top: 2px solid var(--overlay0);
-  }
-
-  a {
-    &,
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  &.me {
-    display: flex;
-    flex-direction: column;
+a[target="_blank"]:has(img) {
+  &,
+  &:hover {
+    text-decoration: none;
   }
 }
