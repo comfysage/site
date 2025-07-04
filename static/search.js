@@ -1,9 +1,10 @@
 function debounce(func, wait) {
-  var timeout;
+  let timeout;
 
   return function () {
-    var context = this;
-    var args = arguments;
+    // deno-lint-ignore no-this-alias
+    const context = this;
+    const args = arguments;
     clearTimeout(timeout);
 
     timeout = setTimeout(function () {
@@ -24,30 +25,30 @@ function debounce(func, wait) {
 // maximum sum. If there are multiple maximas, then get the last one.
 // Enclose the terms in <b>.
 function makeTeaser(body, terms) {
-  var TERM_WEIGHT = 40;
-  var NORMAL_WORD_WEIGHT = 2;
-  var FIRST_WORD_WEIGHT = 8;
-  var TEASER_MAX_WORDS = 30;
+  const TERM_WEIGHT = 40;
+  const NORMAL_WORD_WEIGHT = 2;
+  const FIRST_WORD_WEIGHT = 8;
+  const TEASER_MAX_WORDS = 30;
 
-  var stemmedTerms = terms.map(function (w) {
+  const stemmedTerms = terms.map(function (w) {
     return elasticlunr.stemmer(w.toLowerCase());
   });
-  var termFound = false;
-  var index = 0;
-  var weighted = []; // contains elements of ["word", weight, index_in_document]
+  let termFound = false;
+  let index = 0;
+  let weighted = []; // contains elements of ["word", weight, index_in_document]
 
   // split in sentences, then words
-  var sentences = body.toLowerCase().split(". ");
+  const sentences = body.toLowerCase().split(". ");
 
-  for (var i in sentences) {
-    var words = sentences[i].split(" ");
-    var value = FIRST_WORD_WEIGHT;
+  for (let i in sentences) {
+    const words = sentences[i].split(" ");
+    let value = FIRST_WORD_WEIGHT;
 
-    for (var j in words) {
-      var word = words[j];
+    for (let j in words) {
+      const word = words[j];
 
       if (word.length > 0) {
-        for (var k in stemmedTerms) {
+        for (let k in stemmedTerms) {
           if (elasticlunr.stemmer(word).startsWith(stemmedTerms[k])) {
             value = TERM_WEIGHT;
             termFound = true;
@@ -68,27 +69,27 @@ function makeTeaser(body, terms) {
     return body;
   }
 
-  var windowWeights = [];
-  var windowSize = Math.min(weighted.length, TEASER_MAX_WORDS);
+  let windowWeights = [];
+  const windowSize = Math.min(weighted.length, TEASER_MAX_WORDS);
   // We add a window with all the weights first
-  var curSum = 0;
-  for (var i = 0; i < windowSize; i++) {
+  let curSum = 0;
+  for (let i = 0; i < windowSize; i++) {
     curSum += weighted[i][1];
   }
   windowWeights.push(curSum);
 
-  for (var i = 0; i < weighted.length - windowSize; i++) {
+  for (let i = 0; i < weighted.length - windowSize; i++) {
     curSum -= weighted[i][1];
     curSum += weighted[i + windowSize][1];
     windowWeights.push(curSum);
   }
 
   // If we didn't find the term, just pick the first window
-  var maxSumIndex = 0;
+  let maxSumIndex = 0;
   if (termFound) {
-    var maxFound = 0;
+    let maxFound = 0;
     // backwards
-    for (var i = windowWeights.length - 1; i >= 0; i--) {
+    for (let i = windowWeights.length - 1; i >= 0; i--) {
       if (windowWeights[i] > maxFound) {
         maxFound = windowWeights[i];
         maxSumIndex = i;
@@ -96,10 +97,10 @@ function makeTeaser(body, terms) {
     }
   }
 
-  var teaser = [];
-  var startIndex = weighted[maxSumIndex][2];
-  for (var i = maxSumIndex; i < maxSumIndex + windowSize; i++) {
-    var word = weighted[i];
+  let teaser = [];
+  let startIndex = weighted[maxSumIndex][2];
+  for (let i = maxSumIndex; i < maxSumIndex + windowSize; i++) {
+    const word = weighted[i];
     if (startIndex < word[2]) {
       // missing text from index to start of `word`
       teaser.push(body.substring(startIndex, word[2]));
@@ -129,10 +130,14 @@ function formatSearchResultItem(item, terms) {
 }
 
 function initSearch() {
+  document.querySelectorAll(".search").forEach(onSearchComponent)
+}
+
+function onSearchComponent(searchEl) {
   console.log('[search] init')
-  let $searchButton = document.querySelector(".search-button")
-  let $searchDialog = document.querySelector("dialog.search-dialog")
-  let $searchContainer = document.querySelector(".search-container")
+  const $searchButton = searchEl.querySelector(".search-button")
+  const $searchDialog = searchEl.querySelector("dialog.search-dialog")
+  const $searchContainer = searchEl.querySelector(".search-container")
 
   $searchContainer.addEventListener('focusout', (e) => {
     const self = e.currentTarget;
@@ -160,23 +165,23 @@ function initSearch() {
     $searchDialog.showModal()
   })
 
-  var $searchInput = document.getElementById("search");
+  const $searchInput = searchEl.querySelector("#search");
 
-  var $searchResults = document.querySelector(".search-results");
-  var $searchResultsItems = document.querySelector(".search-results__items");
-  var MAX_ITEMS = 10;
+  const $searchResults = searchEl.querySelector(".search-results");
+  const $searchResultsItems = searchEl.querySelector(".search-results__items");
+  const MAX_ITEMS = 10;
 
-  var options = {
+  const options = {
     bool: "AND",
     fields: {
       title: {boost: 2},
       body: {boost: 1},
     }
   };
-  var currentTerm = "";
-  var index;
-  
-  var initIndex = async function () {
+  let currentTerm = "";
+  let index;
+
+  const initIndex = async function () {
     if (index === undefined) {
       index = fetch("/search_index.en.json")
         .then(
@@ -185,12 +190,12 @@ function initSearch() {
         }
       );
     }
-    let res = await index;
+    const res = await index;
     return res;
   }
 
   $searchInput.addEventListener("keyup", debounce(async function() {
-    var term = $searchInput.value.trim();
+    const term = $searchInput.value.trim();
     if (term === currentTerm) {
       return;
     }
@@ -201,14 +206,14 @@ function initSearch() {
       return;
     }
 
-    var results = (await initIndex()).search(term, options);
+    const results = (await initIndex()).search(term, options);
     if (results.length === 0) {
       $searchResults.style.display = "none";
       return;
     }
 
-    for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
-      var item = document.createElement("li");
+    for (let i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
+      const item = document.createElement("li");
       item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
       $searchResultsItems.appendChild(item);
     }
