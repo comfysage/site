@@ -36,6 +36,10 @@
     border-left: 4px solid var(--border, var(--default-border));
     transition: border-color .2s;
 
+    p {
+      color: var(--subtext1);
+    }
+
     // quote
     &.quote {
       p {
@@ -118,6 +122,10 @@
 
     li {
       padding: 0 0 0 .5rem;
+
+      &::marker {
+        color: var(--overlay0);
+      }
     }
   }
 }
