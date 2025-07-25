@@ -1,6 +1,8 @@
-a[target="_blank"]:has(img) {
-  &,
-  &:hover {
-    text-decoration: none;
+@layer page {
+  a[target="_blank"]:has(img) {
+    &,
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

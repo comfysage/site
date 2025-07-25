@@ -1,42 +1,44 @@
 @use "../_variables/responsive.scss" as *;
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media not (min-width: $bp-desktop) {
-  #root>#page .sidebar.right {
-    flex-direction: row;
+@layer partials {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
-}
 
-.sidebar.left {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+  @media not (min-width: $bp-desktop) {
+    #root>#page .sidebar.right {
+      flex-direction: row;
+    }
+  }
 
-#root>#page .siteheader {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+  .sidebar.left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-#header a {
-  display: flex;
-  align-items: center;
+  #root>#page .siteheader {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-  .icon {
-    height: 32px;
-    aspect-ratio: 1/1;
+  #header a {
+    display: flex;
+    align-items: center;
 
-    margin: .6rem;
+    .icon {
+      height: 32px;
+      aspect-ratio: 1/1;
 
-    mask-image: url('/favicon.svg');
-    mask-position: center;
-    mask-size: contain;
-    background-color: var(--special);
+      margin: .6rem;
+
+      mask-image: url('/favicon.svg');
+      mask-position: center;
+      mask-size: contain;
+      background-color: var(--special);
+    }
   }
 }

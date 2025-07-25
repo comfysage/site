@@ -1,191 +1,193 @@
-:root {
-  --text-margin: .8rem;
-}
-
-.text {
-  // paragraphs
-  p {
-    line-height: 1.6rem;
-    overflow-wrap: anywhere;
-
-    margin: var(--text-margin) 0;
-
-    color: var(--text);
-
-
-    // inline code
-    &>code {
-      background: var(--surface0);
-      color: var(--subtext0);
-
-      padding: .0rem .4rem;
-    }
+@layer components {
+  :root {
+    --text-margin: .8rem;
   }
 
-  .subtle {
-    color: var(--subtext0);
-  }
-
-  // blockquotes
-  blockquote {
-    --border: var(--overlay0);
-    --icon: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M16 36.4141V34C16 28.4772 20.4772 24 26 24C28.2091 24 30 22.2091 30 20C30 17.7909 28.2091 16 26 16C16.0589 16 8 24.0589 8 34V53C8 58.0351 11.383 62.2801 16 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M16 36.4141C16.9537 36.1443 17.96 36 19 36H25C31.0751 36 36 40.9249 36 47V53C36 59.0751 31.0751 64 25 64H19C17.96 64 16.9537 63.8557 16 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M52 36.4141V34C52 28.4772 56.4772 24 62 24C64.2091 24 66 22.2091 66 20C66 17.7909 64.2091 16 62 16C52.0589 16 44 24.0589 44 34V53C44 58.0351 47.383 62.2801 52 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M52 36.4141C52.9537 36.1443 53.96 36 55 36H61C67.0751 36 72 40.9249 72 47V53C72 59.0751 67.0751 64 61 64H55C53.96 64 52.9537 63.8557 52 63.5859" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
-    margin: var(--text-margin) 0;
-    padding-left: 1rem;
-
-    border-left: 4px solid var(--border, var(--default-border));
-    transition: border-color .2s;
-
+  .text {
+    // paragraphs
     p {
-      color: var(--subtext1);
-    }
+      line-height: 1.6rem;
+      overflow-wrap: anywhere;
 
-    // quote
-    &.quote {
-      p {
+      margin: var(--text-margin) 0;
+
+      color: var(--text);
+
+
+      // inline code
+      &>code {
+        background: var(--surface0);
         color: var(--subtext0);
 
-        &.quote__body {
-          font-style: italic;
+        padding: .0rem .4rem;
+      }
+    }
+
+    .subtle {
+      color: var(--subtext0);
+    }
+
+    // blockquotes
+    blockquote {
+      --border: var(--overlay0);
+      --icon: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M16 36.4141V34C16 28.4772 20.4772 24 26 24C28.2091 24 30 22.2091 30 20C30 17.7909 28.2091 16 26 16C16.0589 16 8 24.0589 8 34V53C8 58.0351 11.383 62.2801 16 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M16 36.4141C16.9537 36.1443 17.96 36 19 36H25C31.0751 36 36 40.9249 36 47V53C36 59.0751 31.0751 64 25 64H19C17.96 64 16.9537 63.8557 16 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M52 36.4141V34C52 28.4772 56.4772 24 62 24C64.2091 24 66 22.2091 66 20C66 17.7909 64.2091 16 62 16C52.0589 16 44 24.0589 44 34V53C44 58.0351 47.383 62.2801 52 63.5859" stroke-linecap="round" stroke-linejoin="round" /> <path d="M52 36.4141C52.9537 36.1443 53.96 36 55 36H61C67.0751 36 72 40.9249 72 47V53C72 59.0751 67.0751 64 61 64H55C53.96 64 52.9537 63.8557 52 63.5859" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+      margin: var(--text-margin) 0;
+      padding-left: 1rem;
+
+      border-left: 4px solid var(--border, var(--default-border));
+      transition: border-color .2s;
+
+      p {
+        color: var(--subtext1);
+      }
+
+      // quote
+      &.quote {
+        p {
+          color: var(--subtext0);
+
+          &.quote__body {
+            font-style: italic;
+          }
+        }
+      }
+
+      // callouts
+      h6 {
+        &::before {
+          content: '';
+          display: inline-block;
+          height: 1rem;
+          aspect-ratio: 1/1;
+          vertical-align: middle;
+
+          margin: 0 .8rem 0 0;
+
+          mask: var(--icon);
+          background-color: var(--border);
+        }
+
+        color: var(--border);
+      }
+
+      &.info {
+        --border: var(--blue);
+        --icon: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M68 40C68 55.464 55.464 68 40 68C24.536 68 12 55.464 12 40C12 24.536 24.536 12 40 12C55.464 12 68 24.536 68 40Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M40.1494 53.5252V31.1252H31.1494M31 53.5252H49" stroke-linecap="round" stroke-linejoin="round" /> <path d="M40 23.9253V25.5253" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+      }
+
+      &.warn {
+        --border: var(--yellow);
+        --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M68 40C68 55.464 55.464 68 40 68C24.536 68 12 55.464 12 40C12 24.536 24.536 12 40 12C55.464 12 68 24.536 68 40Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 24V46.4" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 53.6001V55.2001" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+      }
+
+      &.caution {
+        --border: var(--red);
+        --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M38.2635 15.039C39.0313 13.6953 40.9687 13.6953 41.7364 15.039L70.2901 65.0078C71.052 66.3412 70.0892 68.0001 68.5536 68.0001H11.4463C9.91067 68.0001 8.94794 66.3412 9.70983 65.0078L38.2635 15.039Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 28.4746V50.8746" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 58.0745V59.6745" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+      }
+
+      &.note {
+        --border: var(--aqua);
+        --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M19 16C19 13.7909 20.7909 12 23 12H59C61.2091 12 63 13.7909 63 16V64C63 66.2091 61.2091 68 59 68H23C20.7909 68 19 66.2091 19 64V16Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M21 28H17M21 20H17M21 36H17M21 52H17M21 60H17M21 44H17" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 24H53" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 32H45" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 40H53" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 48H45" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 56H53" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+      }
+    }
+
+    --h-margin-b: .8rem;
+
+    // headers
+    h1 {
+      margin: 2.25rem 0 var(--h-margin-b);
+      font-size: 1.75rem
+    }
+
+    h2 {
+      margin: 1.9rem 0 var(--h-margin-b);
+      font-size: 1.4rem
+    }
+
+    h3 {
+      margin: 1.62rem 0 var(--h-margin-b);
+      font-size: 1.12rem
+    }
+
+    h4,
+    h5,
+    h6 {
+      margin: 1.5rem 0 var(--h-margin-b);
+      font-size: 1rem
+    }
+
+    // lists
+    ul {
+      list-style-position: inside;
+      list-style-type: '- ';
+
+      li {
+        padding: 0 0 0 .5rem;
+
+        &::marker {
+          color: var(--overlay0);
         }
       }
     }
+  }
 
-    // callouts
-    h6 {
-      &::before {
-        content: '';
-        display: inline-block;
-        height: 1rem;
-        aspect-ratio: 1/1;
-        vertical-align: middle;
+  p.subtitle {
+    margin-top: 0;
 
-        margin: 0 .8rem 0 0;
-
-        mask: var(--icon);
-        background-color: var(--border);
-      }
-
-      color: var(--border);
-    }
-
-    &.info {
-      --border: var(--blue);
-      --icon: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M68 40C68 55.464 55.464 68 40 68C24.536 68 12 55.464 12 40C12 24.536 24.536 12 40 12C55.464 12 68 24.536 68 40Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M40.1494 53.5252V31.1252H31.1494M31 53.5252H49" stroke-linecap="round" stroke-linejoin="round" /> <path d="M40 23.9253V25.5253" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
-    }
-
-    &.warn {
-      --border: var(--yellow);
-      --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M68 40C68 55.464 55.464 68 40 68C24.536 68 12 55.464 12 40C12 24.536 24.536 12 40 12C55.464 12 68 24.536 68 40Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 24V46.4" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 53.6001V55.2001" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
-    }
-
-    &.caution {
-      --border: var(--red);
-      --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M38.2635 15.039C39.0313 13.6953 40.9687 13.6953 41.7364 15.039L70.2901 65.0078C71.052 66.3412 70.0892 68.0001 68.5536 68.0001H11.4463C9.91067 68.0001 8.94794 66.3412 9.70983 65.0078L38.2635 15.039Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 28.4746V50.8746" stroke-linecap="round" stroke-linejoin="round" /> <path d="M39.9678 58.0745V59.6745" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
-    }
-
-    &.note {
-      --border: var(--aqua);
-      --icon: url('data:image/svg+xml;charset=utf-8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"> <path d="M19 16C19 13.7909 20.7909 12 23 12H59C61.2091 12 63 13.7909 63 16V64C63 66.2091 61.2091 68 59 68H23C20.7909 68 19 66.2091 19 64V16Z" stroke-linecap="round" stroke-linejoin="round" /> <path d="M21 28H17M21 20H17M21 36H17M21 52H17M21 60H17M21 44H17" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 24H53" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 32H45" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 40H53" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 48H45" stroke-linecap="round" stroke-linejoin="round" /> <path d="M29 56H53" stroke-linecap="round" stroke-linejoin="round" /> </svg>');
+    .text :has(+ &) {
+      margin-bottom: 0;
     }
   }
 
-  --h-margin-b: .8rem;
+  .text pre:has(>code) {
+    --cb-padding: 1rem;
+    --gutter-size: 2rem;
+    margin: .5rem 0;
+    padding: var(--cb-padding) var(--gutter-size, var(--cb-padding));
+    border: 2px solid var(--border, var(--default-border));
 
-  // headers
-  h1 {
-    margin: 2.25rem 0 var(--h-margin-b);
-    font-size: 1.75rem
-  }
+    background: var(--surface0) !important;
 
-  h2 {
-    margin: 1.9rem 0 var(--h-margin-b);
-    font-size: 1.4rem
-  }
+    overflow: auto;
 
-  h3 {
-    margin: 1.62rem 0 var(--h-margin-b);
-    font-size: 1.12rem
-  }
+    /* The line numbers already provide some kind of left/right padding */
+    &[data-linenos] {
+      padding: var(--cb-padding) 0;
+    }
 
-  h4,
-  h5,
-  h6 {
-    margin: 1.5rem 0 var(--h-margin-b);
-    font-size: 1rem
-  }
+    table td {
+      padding: 0;
 
-  // lists
-  ul {
-    list-style-position: inside;
-    list-style-type: '- ';
+      /* The line number cells */
+      &:nth-of-type(1) {
+        text-align: center;
+        user-select: none;
 
-    li {
-      padding: 0 0 0 .5rem;
+        width: var(--gutter-size);
 
-      &::marker {
         color: var(--overlay0);
       }
     }
-  }
-}
 
-p.subtitle {
-  margin-top: 0;
+    mark {
+      /* If you want your highlights to take the full width */
+      display: block;
+      /* The default background colour of a mark is bright yellow */
+      background-color: rgba(254, 252, 232, 0.9);
+    }
 
-  .text :has(+ &) {
-    margin-bottom: 0;
-  }
-}
-
-.text pre:has(>code) {
-  --cb-padding: 1rem;
-  --gutter-size: 2rem;
-  margin: .5rem 0;
-  padding: var(--cb-padding) var(--gutter-size, var(--cb-padding));
-  border: 2px solid var(--border, var(--default-border));
-
-  background: var(--surface0) !important;
-
-  overflow: auto;
-
-  /* The line numbers already provide some kind of left/right padding */
-  &[data-linenos] {
-    padding: var(--cb-padding) 0;
-  }
-
-  table td {
-    padding: 0;
-
-    /* The line number cells */
-    &:nth-of-type(1) {
-      text-align: center;
-      user-select: none;
-
-      width: var(--gutter-size);
-
-      color: var(--overlay0);
+    table {
+      width: 100%;
+      border-collapse: collapse;
     }
   }
 
-  mark {
-    /* If you want your highlights to take the full width */
-    display: block;
-    /* The default background colour of a mark is bright yellow */
-    background-color: rgba(254, 252, 232, 0.9);
-  }
-
-  table {
+  // spacing
+  hr {
+    background-color: var(--surface1);
+    border: none;
     width: 100%;
-    border-collapse: collapse;
+    height: 1px;
+    margin: 2rem auto;
   }
-}
-
-// spacing
-hr {
-  background-color: var(--surface1);
-  border: none;
-  width: 100%;
-  height: 1px;
-  margin: 2rem auto;
 }

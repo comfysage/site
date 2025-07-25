@@ -1,77 +1,79 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-ul[role='list'],
-ol[role='list'] {
-  &, .text & {
-    list-style: none;
-  }
-}
-
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-img,
-picture,
-svg,
-video,
-canvas {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  font-style: italic;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-input,
-button,
-textarea,
-select {
-  border: unset;
-  background: unset;
-  padding: unset;
-  font: inherit;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
+@layer reset {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-    transition: none;
+    box-sizing: border-box;
   }
-}
 
-body,
-html {
-  height: 100%;
-  width: 100vw;
-  overflow-x: hidden;
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  text-size-adjust: none;
+  ul[role='list'],
+  ol[role='list'] {
+    &, .text & {
+      list-style: none;
+    }
+  }
 
-  scroll-behavior: smooth;
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  img,
+  picture,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    border: unset;
+    background: unset;
+    padding: unset;
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition: none;
+    }
+  }
+
+  body,
+  html {
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+
+    scroll-behavior: smooth;
+  }
 }

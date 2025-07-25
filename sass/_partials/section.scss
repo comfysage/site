@@ -1,33 +1,35 @@
-@mixin surface {
-  border-radius: 6px;
-  background-color: var(--surface0);
-  --border: var(--surface1);
-  border: 1px solid var(--border, var(--default-border));
-}
-
-.surface {
-  @include surface();
-}
-
-@mixin section {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: "header" "section";
-
-  h3 {
-    grid-area: header;
-    padding: .2rem .6rem;
-
-    font-size: 1rem;
-    text-transform: lowercase;
-    color: var(--subtext0);
+@layer partials {
+  @mixin surface {
+    border-radius: 6px;
+    background-color: var(--surface0);
+    --border: var(--surface1);
+    border: 1px solid var(--border, var(--default-border));
   }
-  &>:not(h3) {
+
+  .surface {
     @include surface();
-    padding: 10px;
   }
-}
 
-.section {
-  @include section();
+  @mixin section {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "section";
+
+    h3 {
+      grid-area: header;
+      padding: .2rem .6rem;
+
+      font-size: 1rem;
+      text-transform: lowercase;
+      color: var(--subtext0);
+    }
+    &>:not(h3) {
+      @include surface();
+      padding: 10px;
+    }
+  }
+
+  .section {
+    @include section();
+  }
 }

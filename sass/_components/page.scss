@@ -1,9 +1,11 @@
-.breadcrumbs {
-  color: var(--overlay1);
-}
+@layer components {
+  .breadcrumbs {
+    color: var(--overlay1);
+  }
 
-// unset list item padding for tag list
-ul.tag-list li {
-  display: inline;
-  padding: 0;
+  // unset list item padding for tag list
+  ul.tag-list li {
+    display: inline;
+    padding: 0;
+  }
 }

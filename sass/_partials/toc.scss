@@ -1,24 +1,26 @@
-ul.toc {
-  &,
-  ul {
-    list-style-type: none;
-  }
-
-  li[data-level] {
-    padding: 0 0 0 1rem;
-
-    &[data-level="1"] {
-      padding: 0;
+@layer partials {
+  ul.toc {
+    &,
+    ul {
+      list-style-type: none;
     }
 
-    a {
-      transition: color 100ms ease;
+    li[data-level] {
+      padding: 0 0 0 1rem;
 
-      color: var(--overlay1);
-      text-decoration: none;
+      &[data-level="1"] {
+        padding: 0;
+      }
 
-      &:hover {
-        color: var(--subtext1);
+      a {
+        transition: color 100ms ease;
+
+        color: var(--overlay1);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--subtext1);
+        }
       }
     }
   }

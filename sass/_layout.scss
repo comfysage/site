@@ -1,184 +1,186 @@
 @use "_variables/responsive.scss" as *;
 
-// sizes
-:root {
-  --top-margin: 6rem;
-  --center-size: 960px;
-}
-
-body {
-  container: body / inline-size;
-  min-height: 100vh;
-  width: 100vw;
-}
-
-#root,
-#page {
-  height: 100%;
-  width: 100%;
-}
-
-#page {
-  display: grid;
-  grid-template:
-    "grid-sidebar-left grid-header grid-sidebar-right" auto
-    "grid-sidebar-left grid-center grid-sidebar-right" 1fr
-    "grid-sidebar-left grid-footer grid-sidebar-right" min-content
-    / 320px minmax(min-content, var(--center-size)) 320px;
-  gap: .32rem;
-
-  overflow: auto;
-
-  justify-content: center;
-}
-
-#root>#page {
-  @include notdesktop() {
-    padding: 0 4rem 0 0;
+@layer layout {
+  // sizes
+  :root {
+    --top-margin: 6rem;
+    --center-size: 960px;
   }
 
-  @include onmobile() {
-    padding: 0 2rem;
-    --top-margin: 2rem;
-    --header-size: var(--df-header-size);
-  }
-}
-
-
-#root {
-  container: root / inline-size;
-
-  overflow: auto;
-
-  .left {
-    grid-area: grid-sidebar-left;
+  body {
+    container: body / inline-size;
+    min-height: 100vh;
+    width: 100vw;
   }
 
-  section.main {
-    grid-area: grid-center;
+  #root,
+  #page {
+    height: 100%;
+    width: 100%;
   }
 
-  .right {
-    grid-area: grid-sidebar-right;
+  #page {
+    display: grid;
+    grid-template:
+      "grid-sidebar-left grid-header grid-sidebar-right" auto
+      "grid-sidebar-left grid-center grid-sidebar-right" 1fr
+      "grid-sidebar-left grid-footer grid-sidebar-right" min-content
+      / 320px minmax(min-content, var(--center-size)) 320px;
+    gap: .32rem;
+
+    overflow: auto;
+
+    justify-content: center;
   }
 
-  .page-header {
-    grid-area: grid-header;
-    margin: var(--top-margin) 0 0;
-  }
-
-  .page-footer {
-    grid-area: grid-footer;
-    margin: 1.8rem 0;
-  }
-}
-
-#root>#page {
-  .sidebar {
-    position: sticky;
-    top: 0;
-
-    .siteheader {
-      @include onmobile() {
-        display: none;
-      }
-    }
-
-    height: 100vh;
-    padding: var(--top-margin) 2rem 2rem;
-  }
-}
-
-#root>#page .sidebar {
-  &.right {
+  #root>#page {
     @include notdesktop() {
-      position: initial;
-      height: auto;
-      padding: 0;
+      padding: 0 4rem 0 0;
     }
-  }
-  &.left {
+
     @include onmobile() {
-      position: initial;
-      height: auto;
-      padding: 1rem 0 0;
+      padding: 0 2rem;
+      --top-margin: 2rem;
+      --header-size: var(--df-header-size);
     }
   }
-}
 
-#root>#page {
-  .page-header {
-    .search {
-      display: none;
 
-      margin: 2rem 0;
+  #root {
+    container: root / inline-size;
 
+    overflow: auto;
+
+    .left {
+      grid-area: grid-sidebar-left;
+    }
+
+    section.main {
+      grid-area: grid-center;
+    }
+
+    .right {
+      grid-area: grid-sidebar-right;
+    }
+
+    .page-header {
+      grid-area: grid-header;
+      margin: var(--top-margin) 0 0;
+    }
+
+    .page-footer {
+      grid-area: grid-footer;
+      margin: 1.8rem 0;
+    }
+  }
+
+  #root>#page {
+    .sidebar {
+      position: sticky;
+      top: 0;
+
+      .siteheader {
+        @include onmobile() {
+          display: none;
+        }
+      }
+
+      height: 100vh;
+      padding: var(--top-margin) 2rem 2rem;
+    }
+  }
+
+  #root>#page .sidebar {
+    &.right {
+      @include notdesktop() {
+        position: initial;
+        height: auto;
+        padding: 0;
+      }
+    }
+    &.left {
       @include onmobile() {
-        display: block;
-        width: min(32rem, 100%);
-        justify-self: center;
+        position: initial;
+        height: auto;
+        padding: 1rem 0 0;
       }
     }
   }
-}
 
-#root>#page {
-  @include ontablet() {
-    grid-template:
-      "grid-sidebar-left grid-header" auto
-      "grid-sidebar-left grid-center" 1fr
-      "grid-sidebar-left grid-sidebar-right" auto
-      "grid-sidebar-left grid-footer" min-content
-      / 320px minmax(min-content, var(--center-size));
+  #root>#page {
+    .page-header {
+      .search {
+        display: none;
+
+        margin: 2rem 0;
+
+        @include onmobile() {
+          display: block;
+          width: min(32rem, 100%);
+          justify-self: center;
+        }
+      }
+    }
   }
-  @include onmobile() {
-    grid-template:
-      "grid-header" auto
-      "grid-sidebar-left" min-content
-      "grid-center" 1fr
-      "grid-sidebar-right" auto
-      "grid-footer" min-content
-      / minmax(min-content, var(--center-size));
+
+  #root>#page {
+    @include ontablet() {
+      grid-template:
+        "grid-sidebar-left grid-header" auto
+        "grid-sidebar-left grid-center" 1fr
+        "grid-sidebar-left grid-sidebar-right" auto
+        "grid-sidebar-left grid-footer" min-content
+        / 320px minmax(min-content, var(--center-size));
+    }
+    @include onmobile() {
+      grid-template:
+        "grid-header" auto
+        "grid-sidebar-left" min-content
+        "grid-center" 1fr
+        "grid-sidebar-right" auto
+        "grid-footer" min-content
+        / minmax(min-content, var(--center-size));
+    }
   }
-}
 
-//
+  //
 
-#main {
-  container: page-content / inline-size;
-}
-
-#main,
-.page-footer {
-  min-width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#main > hr {
-  display: none;
-
-  @include notdesktop {
-    display: block;
+  #main {
+    container: page-content / inline-size;
   }
-}
 
-//
-
-.spacer {
-  flex: auto;
-}
-
-[onmobile] {
-  display: none;
-  @include onmobile() {
-    display: initial;
+  #main,
+  .page-footer {
+    min-width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
-[ontablet] {
-  display: none;
-  @include ontablet() {
-    display: initial;
+
+  #main > hr {
+    display: none;
+
+    @include notdesktop {
+      display: block;
+    }
+  }
+
+  //
+
+  .spacer {
+    flex: auto;
+  }
+
+  [onmobile] {
+    display: none;
+    @include onmobile() {
+      display: initial;
+    }
+  }
+  [ontablet] {
+    display: none;
+    @include ontablet() {
+      display: initial;
+    }
   }
 }

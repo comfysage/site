@@ -1,25 +1,27 @@
-:root {
-  --font-sans-serif--system: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
-  --font-serif--system: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --font-mono--system: Menlo, Consolas, Monaco, Adwaita Mono, Liberation Mono, Lucida Console, monospace;
-  --font-sans-serif: 'Maple Mono', var(--font-sans-serif--system);
-  --font-mono: 'Maple Mono', var(--font-mono--system);
-}
+@layer base {
+  :root {
+    --font-sans-serif--system: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+    --font-serif--system: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    --font-mono--system: Menlo, Consolas, Monaco, Adwaita Mono, Liberation Mono, Lucida Console, monospace;
+    --font-sans-serif: 'Maple Mono', var(--font-sans-serif--system);
+    --font-mono: 'Maple Mono', var(--font-mono--system);
+  }
 
-html,
-body {
-  background-color: var(--base);
-  color: var(--text);
-  font-family: var(--font-sans-serif);
-  font-size: 16px;
-}
+  html,
+  body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: var(--font-sans-serif);
+    font-size: 16px;
+  }
 
-pre,
-code {
-  font-family: var(--font-code), ui-monospace, monospace;
-  font-variant-ligatures: none;
-}
+  pre,
+  code {
+    font-family: var(--font-code), ui-monospace, monospace;
+    font-variant-ligatures: none;
+  }
 
-:root {
-  color-scheme: dark;
+  :root {
+    color-scheme: dark;
+  }
 }

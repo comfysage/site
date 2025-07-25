@@ -1,61 +1,63 @@
-ul.blogpost-list {
-  display: flex;
-  flex-direction: column;
+@layer partials {
+  ul.blogpost-list {
+    display: flex;
+    flex-direction: column;
 
-  padding: 2rem 0 0;
+    padding: 2rem 0 0;
 
-  gap: 1.5rem;
+    gap: 1.5rem;
 
-  li.blogpost {
-    display: grid;
-    grid-template: auto auto / 100%;
-
-    list-style: none;
-    padding: 1rem;
-    gap: 1rem;
-
-    a.blogpost-info {
+    li.blogpost {
       display: grid;
-      grid-template: "date" auto "title" auto "description" auto / 100%;
+      grid-template: auto auto / 100%;
 
-      .title {
-        grid-area: title;
+      list-style: none;
+      padding: 1rem;
+      gap: 1rem;
 
-        margin: .5rem 0rem .2rem;
-        align-self: end;
+      a.blogpost-info {
+        display: grid;
+        grid-template: "date" auto "title" auto "description" auto / 100%;
 
-        color: var(--text);
-      }
+        .title {
+          grid-area: title;
 
-      .date {
-        grid-area: date;
+          margin: .5rem 0rem .2rem;
+          align-self: end;
 
-        font-size: .9rem;
+          color: var(--text);
+        }
+
+        .date {
+          grid-area: date;
+
+          font-size: .9rem;
+
+          color: var(--overlay2);
+        }
+
+        .description {
+          grid-area: description;
+
+          color: var(--subtext1);
+        }
 
         color: var(--overlay2);
-      }
-
-      .description {
-        grid-area: description;
-
-        color: var(--subtext1);
-      }
-
-      color: var(--overlay2);
-
-      text-decoration: none;
-
-      &:hover {
-        transition: color 300ms ease;
-        color: var(--special);
 
         text-decoration: none;
-      }
-    }
 
-    ul.tag-list li {
-      a {
-        color: var(--subtext1);
+        &:hover {
+          transition: color 300ms ease;
+          color: var(--special);
+
+          text-decoration: none;
+        }
+      }
+
+      ul.tag-list li {
+        a {
+          color: var(--subtext1);
+        }
       }
     }
   }

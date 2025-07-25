@@ -1,19 +1,21 @@
 @use "../_variables/responsive.scss" as *;
 
-.navbar {
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+@layer partials {
+  .navbar {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
 
-    li {
-      list-style: none;
+      li {
+        list-style: none;
+      }
     }
   }
-}
 
-@media (max-width: $bp-mobile) {
-  .navbar {
-    display: none;
+  @media (max-width: $bp-mobile) {
+    .navbar {
+      display: none;
+    }
   }
 }

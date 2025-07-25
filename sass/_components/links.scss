@@ -1,109 +1,111 @@
-%link-internal {
-  --bg-opacity: 8%;
-  background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
-  transition: var(--bg-opacity) 300ms ease;
+@layer components {
+  %link-internal {
+    --bg-opacity: 8%;
+    background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
+    transition: var(--bg-opacity) 300ms ease;
 
-  padding: 0 .4rem;
-  border-radius: 6px;
-
-  text-decoration: none;
-
-  &:hover {
-    --bg-opacity: 12%;
+    padding: 0 .4rem;
+    border-radius: 6px;
 
     text-decoration: none;
-  }
-}
-
-// default links
-// normal: special fg
-// hover: underlined
-a {
-  color: var(--special);
-  // font-weight: 600;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--special);
-    text-decoration: underline;
-  }
-}
-
-// default (internal) links in text
-// normal: special fg with special accent background
-// hover: bg becomes more opaque
-.text p {
-  a:not([target="_blank"]) {
-    @extend %link-internal;
-  }
-
-  // external links
-  a[target="_blank"] {
-    border-bottom: 2px solid var(--overlay0);
-
-    transition: border-color 300ms ease;
 
     &:hover {
-      border-color: var(--special);
+      --bg-opacity: 12%;
+
       text-decoration: none;
     }
   }
-}
 
-a.datalink {
-  position: relative;
-  // fixes arrow alignment
-  vertical-align: middle;
-
-  margin-right: .6rem;
-
-  &:hover {
+  // default links
+  // normal: special fg
+  // hover: underlined
+  a {
+    color: var(--special);
+    // font-weight: 600;
     text-decoration: none;
 
-    &::after {
-      padding-left: .4rem;
+    &:hover {
       color: var(--special);
+      text-decoration: underline;
     }
   }
 
-  &::after {
-    content: '->';
-    position: absolute;
-    width: max-content;
-    font-size: 1.2rem;
+  // default (internal) links in text
+  // normal: special fg with special accent background
+  // hover: bg becomes more opaque
+  .text p {
+    a:not([target="_blank"]) {
+      @extend %link-internal;
+    }
 
-    transition: padding-left 300ms ease-out,
-      color 300ms ease-out;
+    // external links
+    a[target="_blank"] {
+      border-bottom: 2px solid var(--overlay0);
 
-    padding-left: .2rem;
-    color: var(--overlay0);
+      transition: border-color 300ms ease;
+
+      &:hover {
+        border-color: var(--special);
+        text-decoration: none;
+      }
+    }
   }
-}
 
-a.heading-anchor {
-  position: relative;
-
-  &::before {
-    content: '#';
-    position: absolute;
-    display: inline-block;
-    left: -1rem;
-
-    font-style: italic;
+  a.datalink {
+    position: relative;
+    // fixes arrow alignment
     vertical-align: middle;
 
-    color: var(--overlay0);
+    margin-right: .6rem;
 
-    transition: color 100ms ease-in;
+    &:hover {
+      text-decoration: none;
 
-    :hover > & {
-      color: var(--overlay2);
+      &::after {
+        padding-left: .4rem;
+        color: var(--special);
+      }
+    }
+
+    &::after {
+      content: '->';
+      position: absolute;
+      width: max-content;
+      font-size: 1.2rem;
+
+      transition: padding-left 300ms ease-out,
+        color 300ms ease-out;
+
+      padding-left: .2rem;
+      color: var(--overlay0);
     }
   }
-}
 
-.page-header ul.tag-list li {
-  a {
-    @extend %link-internal;
+  a.heading-anchor {
+    position: relative;
+
+    &::before {
+      content: '#';
+      position: absolute;
+      display: inline-block;
+      left: -1rem;
+
+      font-style: italic;
+      vertical-align: middle;
+
+      color: var(--overlay0);
+
+      transition: color 100ms ease-in;
+
+      :hover > & {
+        color: var(--overlay2);
+      }
+    }
+  }
+
+  .page-header ul.tag-list li {
+    a {
+      @extend %link-internal;
+    }
   }
 }

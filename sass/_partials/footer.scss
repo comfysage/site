@@ -1,11 +1,13 @@
-.page-footer {
-  text-align: center;
+@layer partials {
+  .page-footer {
+    text-align: center;
 
-  .webring {}
-  .feed-info {
-    color: var(--subtext0);
-  }
-  .device-details {
-    color: var(--overlay1);
+    .webring {}
+    .feed-info {
+      color: var(--subtext0);
+    }
+    .device-details {
+      color: var(--overlay1);
+    }
   }
 }
