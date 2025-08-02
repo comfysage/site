@@ -79,12 +79,6 @@
       position: sticky;
       top: 0;
 
-      .siteheader {
-        @include onmobile() {
-          display: none;
-        }
-      }
-
       height: 100vh;
       padding: var(--top-margin) 2rem 2rem;
     }

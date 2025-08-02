@@ -7,6 +7,12 @@
     gap: 2rem;
   }
 
+  #root>#page .sidebar .siteheader {
+    @include onmobile() {
+      display: none;
+    }
+  }
+
   @media not (min-width: $bp-desktop) {
     #root>#page .sidebar.right {
       flex-direction: row;
