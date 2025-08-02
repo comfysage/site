@@ -15,6 +15,12 @@
       padding: 1rem;
       gap: 1rem;
 
+      transition: border-color 100ms ease;
+
+      &:hover {
+        --border: var(--overlay0);
+      }
+
       a.blogpost-info {
         display: grid;
         grid-template: "date" auto "title" auto "description" auto / 100%;
