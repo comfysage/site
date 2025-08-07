@@ -8,7 +8,7 @@
   <h1 class="page-title">{{ page.title }}</h1>
   <p class="subtitle subtle">{{ page.description }}</p>
   {% if page.date %}
-  <p class="subtitle subtle"><strong>{{ page.date | date(format="%d %b %Y") }}</strong></p>
+  <p class="subtitle subtle"><strong>{{ page.date | date(format="%d %b %Y") }}</strong> | {{ page.reading_time }} min</p>
   {% endif %}
   {% include "partials/taglist.html" %}
 {% endblock pageheader %}
