@@ -136,6 +136,10 @@
         &::marker {
           color: var(--overlay0);
         }
+
+        p {
+          display: inline;
+        }
       }
     }
   }
