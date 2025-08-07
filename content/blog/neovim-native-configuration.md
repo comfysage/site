@@ -1,8 +1,7 @@
 +++
 title = "tending your editor config: building sylvee & lynn"
-date = 2025-08-07
+date = 2025-08-13
 description = "my adventure building a native-first neovim experience"
-draft = true
 [taxonomies]
 tags = ["neovim", "config"]
 +++
@@ -208,13 +207,16 @@ lazy-loading is kept pretty simple. there's no usercommand wrapping or keymaps
 that automatically source the plugin. instead, you can use the `event` field to
 create an autocommand for the plugin.
 
-configuration is where the most magic lies, and funnily it's also the simplest
-(just a few lines of lua code). lynn will automatically source any lua file in
-the `config/` directory of your config that matches the name of the plugin. for
-[mini.nvim][] this means lynn will load `config/mini.lua` and for [fzf-lua][]
-this means lynn will load `config/fzf.lua`. finding these files is done by the
-`:runtime` command - neovim has a builtin mechanism for finding files in your
-setup and there is no need for lua code going over your filesystem.
+configuration is where most of the magic lies, and funnily enough it's also the
+simplest (just a few lines of lua code). lynn will automatically source any lua
+file in the `config/` directory of your config that matches the name of the
+plugin. for [mini.nvim][] this means lynn will load `config/mini.lua` and for
+[fzf-lua][] this means lynn will load `config/fzf.lua`. finding these files is
+done by the `:runtime` command - neovim already has a builtin mechanism for
+finding files in your setup and there is no need for lua code going over your
+filesystem.
+
+## using lynn and sylvee
 
 <!--
 
@@ -234,6 +236,54 @@ setup and there is no need for lua code going over your filesystem.
 
 -->
 
+### adding plugins to lynn
+
+plugin specs are quite simple. you're probably already familiar with most of the fields it supports.
+
+a simple example would look like this:
+
+```lua
+{
+  'owner/repo',
+  url = 'https://github.com/owner/repo', -- optionally specify a custom url
+  name = "cool-repo", -- optionally rename the plugin
+  version = "main", -- pin the plugin to a specific version, allows for the use of `vim.version`
+  path = "path/to/plugin", -- optionally specify a custom path
+  deps = { "dep1", "dep2" }, -- specify dependencies
+  event = "VimEnter", -- specify an autocommand event
+  lazy = true, -- lazy-load the plugin
+  after = function() end, -- pass a function to run after the plugin is loaded, by default sources the `config/plugin-name.lua` file
+  before = function() end, -- pass a function to run before the plugin is loaded
+}
+```
+
+lazy loading is only done if `lazy` is set to `true` or an autocmd event is
+specified. this means that normally lynn will load the plugin after neovim's
+configuration stage is done.
+
+there are `after` and `before` fields but in most cases these should not have
+to be used. `after` will default to loading your config file so any important
+code should go there. `before` is only useful if you want to run code before
+the plugin is loaded.
+
+### using sylvee
+
+using sylvee is as simple as cloning the repo and running neovim with `NVIM_APPNAME` set to `"sylvee"`.
+
+```bash
+git clone https://github.com/comfysage/sylvee.git ~/.config/sylvee
+NVIM_APPNAME=sylvee nvim
+```
+
+this can be simplified even more by creating a quick wrapper script for sylvee:
+```bash
+#!/usr/bin/env sh
+# ~/.local/bin/sylvee
+NVIM_APPNAME=sylvee nvim "$@"
+```
+
+## what sylvee and lynn don’t do
+
 <!--
 
 ### section 5: tradeoffs and boundaries
@@ -249,6 +299,30 @@ setup and there is no need for lua code going over your filesystem.
 - this makes lynn less “powerful” than full managers — but more understandable
 
 -->
+
+sylvee and lynn don't aim to solve every problem. they just try to stay out of
+your way sylvee is a minimalistic approach that tries to remove the friction of
+configuring neovim, and lynn is a small plugin manager that tries to remove
+some annoyance with managing plugins. they won't solve all the problems in the
+neovim space and they won't fit every use case.
+
+currently lynn does not go well with a nix-wrapped neovim setup. im working on
+adding this by allowing you to disable `vim.pack` within lynn - effectively
+making lynn a lazy-loader for local plugins.
+
+lynn also does not support plugin lock files or snapshots since these features
+are entirely dependent on neovim-core's implementation of `vim.pack`. [as soon
+as this is added][neovim/pr/lock] i will make sure lynn doesn't get in its way.
+
+lynn currently does not support complex lazy-loading rules like `mappings` or
+`cmd` fields to load on keymaps and commands since i think these hurt
+performance in most situations and are simply not worth the trouble.
+additionally, most of these can be implemented manually for specific
+edge-cases.
+
+[neovim/pr/lock]: https://github.com/neovim/neovim/issues/34776
+
+## growing your own garden
 
 <!--
 
@@ -266,6 +340,26 @@ setup and there is no need for lua code going over your filesystem.
 
 -->
 
+i would also like to note that the philosophy of sylvee and lynn is not to be a
+complete solution, but rather a starting point for those that want to build
+their own customized configuration.
+
+sylvee is a starting point for your own garden. you can use it as a base, or
+pick specific parts that you'd like to use. it can be a really strong base to
+build off of, especially for those that prefer a more minimal setup. finding
+features within your editor and knowing some of the basics, like the [quickfix
+list][neovim/docs/qflist], [grep][neovim/docs/grep] and
+[marks][neovim/docs/marks], will help you build your own garden.
+
+you can also use lynn as a standalone plugin manager for your neovim setup.
+this might be useful if you want to keep your neovim setup simple and prefer to
+use neovim's builtin plugin manager without having to deal with creating your
+own lazy-loading solution (ofcourse thats always a viable and fun option).
+
+[neovim/docs/qflist]: https://neovim.io/doc/user/quickfix.html
+[neovim/docs/grep]: https://neovim.io/doc/user/quickfix.html#_5.-using-:vimgrep-and-:grep
+[neovim/docs/marks]: https://neovim.io/doc/user/motion.html#_7.-marks
+
 <!--
 
 ### outro
@@ -282,6 +376,21 @@ setup and there is no need for lua code going over your filesystem.
 - if that sounds like your kind of garden, give them a try
 
 -->
+
+i hope that this setup works for you. i personally loved working on it and
+learned a lot about how powerful of an editor neovim can be if you try to look
+into some of its more complex aspects. the neovim core team has worked really
+hard on creating an impressive and customizable out-of-the-box experience. i
+admire them for all the work they've done and am looking forward to where we'll
+go next.
+
+i've tried my best to work *with* what neovim provides and *against* what most
+neovim distros are reaching for. i tried to balance neovim's defaults with some
+additions that i would love to see in neovim in the future.
+
+if that sounds like your kind of garden, give sylvee and lynn a try. i think
+they're something interesting to try out. if you have any questions or feedback
+please [let me know](https://github.com/comfysage/sylvee/discussions)!
 
 [sylvee]: https://github.com/comfysage/sylvee "sylvee: minimal & native-first neovim config"
 [lynn.nvim]: https://github.com/comfysage/lynn.nvim "lynn.nvim: native-first neovim plugin manager with charm"
