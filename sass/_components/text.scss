@@ -13,6 +13,13 @@
 
       color: var(--text);
 
+      strong {
+        color: var(--aqua);
+      }
+
+      em {
+        color: var(--skye);
+      }
 
       // inline code
       &>code {
