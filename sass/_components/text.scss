@@ -129,6 +129,8 @@
       list-style-type: '- ';
 
       li {
+        margin: .6rem 0;
+
         padding: 0 0 0 .5rem;
 
         &::marker {
