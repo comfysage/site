@@ -392,7 +392,15 @@ if that sounds like your kind of garden, give sylvee and lynn a try. i think
 they're something interesting to try out. if you have any questions or feedback
 please [let me know](https://github.com/comfysage/sylvee/discussions)!
 
+# references
+
+here are some references that add more context to this blogpost:
+
+- a [section](https://neovim.io/doc/user/lua-plugin.html#_lazy-loading) of the neovim docs explaining how to add lazy-loading to your plugin.
+- a [comment](https://github.com/neovim/neovim/issues/35562#issuecomment-3239702727) by [justinmk][] explaining how lazy-loading _should_ be done in neovim.
+
 [sylvee]: https://github.com/comfysage/sylvee "sylvee: minimal & native-first neovim config"
 [lynn.nvim]: https://github.com/comfysage/lynn.nvim "lynn.nvim: native-first neovim plugin manager with charm"
 [mini.nvim]: https://github.com/echasnovski/mini.nvim
 [fzf-lua]: https://github.com/ibhagwan/fzf-lua
+[justinmk]: https://github.com/justinmk
