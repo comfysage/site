@@ -3,7 +3,7 @@ default: build
 prefix := 'dist'
 
 dev:
-  zola serve -p 3000
+  zola serve -p 3000 --drafts
 
 build:
   zola build
