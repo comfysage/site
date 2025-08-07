@@ -153,9 +153,10 @@
     --gutter-size: 2rem;
     margin: .5rem 0;
     padding: var(--cb-padding) var(--gutter-size, var(--cb-padding));
-    border: 2px solid var(--border, var(--default-border));
+    border-radius: .3rem;
+    box-shadow: 0px 0px 12px 0px var(--crust);
 
-    background: var(--surface0) !important;
+    background: var(--mantle) !important;
 
     overflow: auto;
 
