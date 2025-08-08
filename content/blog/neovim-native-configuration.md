@@ -26,7 +26,7 @@ point of customization where the different plugins you're using start holding
 you back: different ui or keybinds start fighting eachother and keeping track of
 lazy-loading for every plugin becomes unmanageable.
 
-most of the time you'll think to yourself that your setup has become to big and
+most of the time you'll think to yourself that your setup has become too big and
 surely if you just restart from scratch you'll avoid this next time ... but you
 never do.
 
@@ -51,13 +51,13 @@ components. this meant no `nvim-cmp` or `blink-cmp` and, most importantly, no
 - the garden metaphor: letting neovim bloom on its own
 -->
 
-thus i created [sylvee][], a native-first neovim configuration that builds on
-the amazing features that have been added to neovim recently. neovim has become
-incredibly powerful out-of-the-box and i want to take advantage of that.
+neovim has become incredibly powerful out-of-the-box and i want to take advantage of that.
+so i created [sylvee][], a native-first neovim configuration that builds on the amazing
+features that have been added to neovim recently. 
 
 to power plugin management i created a wrapper around `vim.pack`, neovim
 nightly's native plugin manager. this wrapper is called [lynn.nvim][], and it
-powers the configuration that i created.
+powers the configuration that i made.
 
 ## neovim's built-in features
 
@@ -67,8 +67,8 @@ defaults has become incredibly user-friendly recently and i noticed that i
 started deleting custom keymaps i added to my config; neovim's default binds
 made more sense than my own.
 
-a perfect example of this was neovim's recent addition of built-in lsp keymaps:
-since neovim 0.11 you'll able to use a bunch of `gr`-prefixed keymaps to access
+a perfect example of this is neovim's recent addition of built-in lsp keymaps:
+from neovim 0.11 onwards, you'll able to use a bunch of `gr`-prefixed keymaps to access
 different lsp-related editor features. these include `grn` to rename a symbol,
 `gra` to access code actions and `grr` to get a list of references. similarly,
 [tpope's vim-unimpaired](https://github.com/tpope/vim-unimpaired) has been
@@ -95,14 +95,15 @@ get sourced. all you need to do is enable the lsp's you use using
 simplified: you no longer have to even `require` this plugin - just
 throw it in your plugin list and all is done.
 
-finally, `vim.pack` got added in neovim-nightly. this powerful built-in plugin
+(comment: i would move this paragraph down to section 3 for better flow) 
+finally, as implied earlier, `vim.pack` got added in neovim-nightly. this powerful built-in plugin
 manager allows you to finally load plugins without the need for a bootstrapped
-package manager like `lazy.nvim`. ... except there are some caveates. currently
+package manager like `lazy.nvim`. ... except there are some caveats. currently
 `vim.pack` only has support for the _management_ and _installation_ of plugins,
 configuration is entirely up to the user. similarly, lazy-loading is assumed to
 be done by plugins themselves (a sentiment that i entirely support). this means
 that there are still definitely some limitations to using `vim.pack` - which
-lead me to create `lynn.nvim`, a plugin manager that leverages neovim's builtin
+led me to create `lynn.nvim`, a plugin manager that leverages neovim's builtin
 features to do all the heavily and creates a configuration interface that fits
 neovim's file based model. more on this [later](#lynn-a-plugin-manager-with-charm).
 
