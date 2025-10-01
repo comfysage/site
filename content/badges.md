@@ -9,7 +9,9 @@ description = "collection of cool badges"
     img="https://robinroses.xyz/badges/me.gif") }}
 
 ```html
-<img width="88" height="31"
+<img
+  width="88"
+  height="31"
   src="https://robinroses.xyz/badges/me.gif"
   alt="robin's 88x31"
 />
@@ -20,9 +22,18 @@ description = "collection of cool badges"
 some awesome people with pretty sites
 
 {{ badge(
+    name="kaya",
+    url="https://tired.moe",
+    img="https://tired.moe/assets/badges/tired.moe.gif") }}
+{{ badge(
     name="isabelroses",
     url="https://isabelroses.com",
     img="https://isabelroses.com/badges/me.gif") }}
+{{
+   badge(
+    name="sketchni",
+    url="https://sketchni.uk",
+    img="https://sketchni.uk/images/sketch.png") }}
 {{ badge(
     name="trinkey",
     url="https://trinkey.com",
