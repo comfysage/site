@@ -4,7 +4,7 @@
   {% end %}
 #}
 
-<blockquote {% if class %}class="{{class}}"{% endif %}>
+<aside {% if class %}class="{{class}}"{% endif %}>
   {% if title %}
   <h6>{{title}}</h6>
   {% else %}
@@ -15,4 +15,4 @@
   <p>
     {{ body | markdown(inline=true) | safe }}
   </p>
-</blockquote>
+</aside>
