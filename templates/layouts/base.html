@@ -61,9 +61,10 @@
           {% include "partials/sitename.html" %}
           {% include "partials/breadcrumbs.html" %}
           {% include "partials/search.html" %}
-          <div class="text">
+          <hgroup class="text">
             {% block pageheader %} {% endblock pageheader %}
-          </div>
+          </hgroup>
+          {% block additionalPageheader %} {% endblock additionalPageheader %}
         </div>
 
         <section id="main" class="page text">

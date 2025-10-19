@@ -10,8 +10,11 @@
   {% if page.date %}
   <p class="subtitle subtle"><strong>{{ page.date | date(format="%d %b %Y") }}</strong> | {{ page.reading_time }} min</p>
   {% endif %}
-  {% include "partials/taglist.html" %}
 {% endblock pageheader %}
+
+{% block additionalPageheader %}
+  {% include "partials/taglist.html" %}
+{% endblock additionalPageheader %}
 
 {% block content %}
   {{ page.content | safe }}
