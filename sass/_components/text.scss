@@ -4,6 +4,7 @@
   }
 
   .text {
+
     // paragraphs
     p {
       line-height: 1.6rem;
@@ -32,6 +33,18 @@
 
     .subtle {
       color: var(--subtext0);
+    }
+
+    del {
+      color: var(--red);
+    }
+
+    ins {
+      color: var(--green);
+    }
+
+    mark {
+      background-color: var(--yellow);
     }
 
     // text blocks
