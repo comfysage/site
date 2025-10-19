@@ -1,10 +1,15 @@
 @use "_variables/responsive.scss" as *;
 
 @layer layout {
+
   // sizes
   :root {
-    --top-margin: 6rem;
-    --center-size: 960px;
+    --top-margin: 1rem;
+    --center-size: 720px;
+    --sidebar-size: 280px;
+
+    --z-header: 99;
+    --z-sidebar: 98;
   }
 
   body {
@@ -13,19 +18,22 @@
     width: 100vw;
   }
 
-  #root,
-  #page {
+  #root {
     height: 100%;
+    width: 100%;
+  }
+
+  #page {
     width: 100%;
   }
 
   #page {
     display: grid;
     grid-template:
-      "grid-sidebar-left grid-header grid-sidebar-right" auto
+      "grid-sidebar-left page-header grid-sidebar-right" auto
       "grid-sidebar-left grid-center grid-sidebar-right" 1fr
       "grid-sidebar-left grid-footer grid-sidebar-right" min-content
-      / 320px minmax(min-content, var(--center-size)) 320px;
+      / var(--sidebar-size) var(--center-size) var(--sidebar-size);
     gap: .32rem;
 
     overflow: auto;
@@ -38,18 +46,42 @@
       padding: 0 4rem 0 0;
     }
 
-    @include onmobile() {
+    @include notdesktop() {
       padding: 0 2rem;
-      --top-margin: 2rem;
       --header-size: var(--df-header-size);
     }
-  }
 
+    @include onmobile() {
+      padding: 0 1rem;
+    }
+  }
 
   #root {
     container: root / inline-size;
 
     overflow: auto;
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-header);
+
+      .site-header-wrapper {
+        width: var(--center-size);
+        padding: var(--top-margin) 0;
+        margin: 0 auto;
+
+        @include ontablet() {
+          width: calc(var(--sidebar-size) + var(--center-size));
+        }
+
+        @include onmobile() {
+          width: min(100% - 2rem, var(--center-size));
+        }
+      }
+
+      background-color: var(--base);
+    }
 
     .left {
       grid-area: grid-sidebar-left;
@@ -64,8 +96,7 @@
     }
 
     .page-header {
-      grid-area: grid-header;
-      margin: var(--top-margin) 0 0;
+      grid-area: page-header;
     }
 
     .page-footer {
@@ -78,6 +109,7 @@
     .sidebar {
       position: sticky;
       top: 0;
+      z-index: var(--z-sidebar);
 
       height: 100vh;
       padding: var(--top-margin) 2rem 2rem;
@@ -92,6 +124,7 @@
         padding: 0;
       }
     }
+
     &.left {
       @include onmobile() {
         position: initial;
@@ -120,15 +153,16 @@
   #root>#page {
     @include ontablet() {
       grid-template:
-        "grid-sidebar-left grid-header" auto
+        "grid-sidebar-left page-header" auto
         "grid-sidebar-left grid-center" 1fr
         "grid-sidebar-left grid-sidebar-right" auto
         "grid-sidebar-left grid-footer" min-content
-        / 320px minmax(min-content, var(--center-size));
+        / var(--sidebar-size) minmax(min-content, var(--center-size));
     }
+
     @include onmobile() {
       grid-template:
-        "grid-header" auto
+        "page-header" auto
         "grid-sidebar-left" min-content
         "grid-center" 1fr
         "grid-sidebar-right" auto
@@ -151,7 +185,7 @@
     margin-right: auto;
   }
 
-  #main > hr {
+  #main>hr {
     display: none;
 
     @include notdesktop {
@@ -167,12 +201,15 @@
 
   [onmobile] {
     display: none;
+
     @include onmobile() {
       display: initial;
     }
   }
+
   [ontablet] {
     display: none;
+
     @include ontablet() {
       display: initial;
     }

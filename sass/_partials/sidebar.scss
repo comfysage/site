@@ -7,7 +7,7 @@
     gap: 2rem;
   }
 
-  #root>#page .sidebar .siteheader {
+  #root>#page .sidebar .sidebar-search {
     @include onmobile() {
       display: none;
     }
@@ -20,12 +20,6 @@
   }
 
   .sidebar.left {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  #root>#page .siteheader {
     display: flex;
     flex-direction: column;
     gap: 2rem;

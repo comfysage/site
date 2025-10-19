@@ -11,10 +11,8 @@
         list-style: none;
       }
     }
-  }
 
-  @media (max-width: $bp-mobile) {
-    .navbar {
+    @include onmobile() {
       display: none;
     }
   }

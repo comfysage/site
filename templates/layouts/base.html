@@ -46,11 +46,17 @@
 
   <body>
     <div id="root">
+      <header class="site-header">
+        <div class="site-header-wrapper">
+          {% include "partials/sitename.html" %}
+          {% include "partials/breadcrumbs.html" %}
+        </div>
+      </header>
+
       <div id="page">
         <div class="left sidebar">
           {% block left %}
-            <div class="siteheader">
-              {% include "partials/siteheader.html" %}
+            <div class="sidebar-search">
               {% include "partials/search.html" %}
             </div>
             {% include "partials/sidebar.html" %}
@@ -58,8 +64,6 @@
         </div>
 
         <div class="page-header">
-          {% include "partials/sitename.html" %}
-          {% include "partials/breadcrumbs.html" %}
           {% include "partials/search.html" %}
           <hgroup class="text">
             {% block pageheader %} {% endblock pageheader %}

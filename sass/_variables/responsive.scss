@@ -1,6 +1,6 @@
 // breakpoints
-$bp-mobile: 800px;
-$bp-desktop: 1200px;
+$bp-mobile: 1000px;
+$bp-desktop: 1280px;
 
 @mixin notdesktop() {
   @media not (min-width: $bp-desktop) {
