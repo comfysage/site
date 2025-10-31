@@ -8,4 +8,25 @@
     display: inline;
     padding: 0;
   }
+
+  .page-header hgroup {
+    .desc {
+      color: var(--subtext1);
+    }
+
+    .metadata {
+      display: flex;
+      flex-direction: row;
+
+      >* {
+        color: var(--subtext0);
+      }
+
+      >:not(:first-child)::before {
+        content: '|';
+        color: var(--overlay0);
+        padding: .5rem;
+      }
+    }
+  }
 }

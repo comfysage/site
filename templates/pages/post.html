@@ -6,10 +6,13 @@
 
 {% block pageheader %}
   <h1 class="page-title">{{ page.title }}</h1>
-  <p class="subtitle subtle">{{ page.description }}</p>
-  {% if page.date %}
-  <p class="subtitle subtle"><strong>{{ page.date | date(format="%d %b %Y") }}</strong> | {{ page.reading_time }} min</p>
-  {% endif %}
+  <p class="subtitle desc">{{ page.description }}</p>
+  <div class="metadata">
+    {% if page.date %}
+      <p class="subtitle">{{ page.date | date(format="%B %d, %Y") }}</p>
+    {% endif %}
+    <p class="subtitle">{{ page.reading_time }} min</p>
+  </div>
 {% endblock pageheader %}
 
 {% block additionalPageheader %}
