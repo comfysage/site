@@ -22,6 +22,10 @@ description = "collection of cool badges"
 some awesome people with pretty sites
 
 {{ badge(
+    name="april",
+    url="https://aprl.pet",
+    img="/badges/april.gif") }}
+{{ badge(
     name="kaya",
     url="https://tired.moe",
     img="https://tired.moe/assets/badges/tired.moe.gif") }}
@@ -39,6 +43,10 @@ some awesome people with pretty sites
     url="https://trinkey.com",
     img="https://trinkey.com/img/88x31.png",
     alt="trinkey's 88x31. image of her cat on the right with the word 'trinkey' taking up the rest of the button.") }}
+{{ badge(
+    name="chloe",
+    url="https://sapphic.moe",
+    img="https://sapphic.moe/buttons/sapphic.png") }}
 
 ## flags
 
