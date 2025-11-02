@@ -14,6 +14,11 @@
     <meta name="color-scheme" content="light-dark" />
     <meta name="darkreader-lock" />
 
+    {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
+    <link rel="stylesheet" type="text/css" href="/evergarden-winter.css" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" type="text/css" href="/evergarden-summer.css" media="(prefers-color-scheme: light)" />
+    {% endif %}
+
     <title>{{ title }} | robinroses</title>
     <meta name="author" content="Robin Roses" />
     <meta name="description" content="{{ description }}" />
