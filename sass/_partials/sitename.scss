@@ -9,6 +9,10 @@
       color: var(--subtext1);
     }
 
+    :first-child {
+      flex-grow: 1;
+    }
+
     padding: 0 0 1rem;
 
     .navbar {
