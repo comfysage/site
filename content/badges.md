@@ -5,14 +5,14 @@ description = "collection of cool badges"
 
 {{ badge(
     name="robin",
-    url="https://robinroses.xyz",
-    img="https://robinroses.xyz/badges/me.gif") }}
+    url="https://robinwobin.dev",
+    img="/badges/me.gif") }}
 
 ```html
 <img
   width="88"
   height="31"
-  src="https://robinroses.xyz/badges/me.gif"
+  src="https://robinwobin.dev/badges/me.gif"
   alt="robin's 88x31"
 />
 ```

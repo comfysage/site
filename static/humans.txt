@@ -1,4 +1,4 @@
 /* Me */
-Name: Robin Roses
+Name: Robin
 GitHub: https://github.com/comfysage
-Website: https://robinroses.com
+Website: https://robinwobin.dev

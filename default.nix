@@ -26,7 +26,7 @@ stdenvNoCC.mkDerivation {
   ];
 
   meta = {
-    homepage = "https://robinroses.xyz";
+    homepage = "https://robinwobin.dev";
     description = "cozy site";
     license = lib.licenses.gpl3;
     maintainers = with lib.maintainers; [ comfysage ];
