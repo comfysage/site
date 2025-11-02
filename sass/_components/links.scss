@@ -1,7 +1,7 @@
 @layer components {
   %link-internal {
     --bg-opacity: 8%;
-    background-color: color-mix(in hsl, var(--crust), var(--special) var(--bg-opacity));
+    background-color: color-mix(in hsl, var(--surface0), var(--special) var(--bg-opacity));
     transition: var(--bg-opacity) 300ms ease;
 
     padding: 0 .4rem;

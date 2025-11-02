@@ -29,5 +29,47 @@
         }
       }
     }
+
+    #modetoggle {
+      display: inline-block;
+      height: 1.2rem;
+
+      cursor: pointer;
+
+      svg {
+        display: none;
+        height: 100%;
+        aspect-ratio: 1;
+        fill: var(--text);
+
+        @media (prefers-color-scheme: dark) {
+          &[prefers=dark] {
+            display: revert;
+          }
+        }
+
+        @media (prefers-color-scheme: light) {
+          &[prefers=light] {
+            display: revert;
+          }
+        }
+
+        html[dark] &[prefers=light] {
+          display: none;
+        }
+
+        html[dark] &[prefers=dark] {
+          display: revert;
+        }
+
+        html[light] &[prefers=dark] {
+          display: none;
+        }
+
+        html[light] &[prefers=light] {
+          display: revert;
+        }
+      }
+    }
   }
 }
